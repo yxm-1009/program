@@ -1,0 +1,132 @@
+<style>
+	/* footer */
+	#footer {
+		width: 100%;
+	}
+
+	.footerMain {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		font-size: 14px;
+		color: #727171;
+		padding: 40px 10px;
+		text-align: center;
+	}
+
+	.footerMain a {
+		font-size: 14px;
+		color: #727171;
+	}
+
+	.footerAppImg>img {
+		width: 350px;
+	}
+
+	.footerAppImg>a {
+		font-size: 17px;
+		display: block;
+		padding: 8px 0 24px;
+	}
+
+	.about {
+		display: flex;
+		align-items: center;
+
+	}
+
+	.about>span {
+		width: 1px;
+		height: 12px;
+		display: block;
+		margin: 0 20px;
+		background-color: #727171;
+	}
+
+	.footerMain>p {
+		margin: 20px 0;
+	}
+
+	.imgsw {
+		position: relative;
+		display: flex;
+		margin: 0 0 20px;
+	}
+
+	.imgsw>li {
+		width: 100px;
+	}
+
+	.footerMain>.imgsw>li>.weixincode {
+		position: absolute;
+		top: -100px;
+		left: 50%;
+		width: 100px;
+		height: 100px;
+		display: none;
+	}
+
+	#weixin:hover .weixincode {
+		display: block;
+	}
+
+	.footerMain>.imgsw img {
+		width: 40px;
+		margin: 0 auto;
+	}
+
+	.imgsq {
+		margin: 10px 0 0;
+	}
+
+	.footerMain>.imgsq>li>a {
+		display: flex;
+		justify-content: center;
+		margin: 4px 0;
+		color: #909399;
+	}
+
+	.imgsq img {
+		width: 20px;
+		height: 20px;
+		margin: 0 4px 0 0;
+	}
+
+	.footerMain>.imgsq>li>a:hover {
+		text-decoration: underline;
+	}
+</style>
+<div id="footer">
+	<div class="footerMain">
+		<div class="footerAppImg">
+			<img src="img/app_download.4161be65.png">
+			<a href="#">点击下载</a>
+		</div>
+		<div class="about">
+			<a href="#">关于我们</a>
+			<span></span>
+			<a href="#">新手购物</a>
+			<span></span>
+			<a href="#">客户服务</a>
+		</div>
+		<p>charleskeith.cn</p>
+		<ul class="imgsw">
+			<li><a href="#"><img src="img/wb.png" alt=""></a></li>
+			<li id="weixin">
+				<img src="img/weixincode.6184a406.jpg" alt="" class="weixincode">
+				<a href="#"><img src="img/wx.png" alt=""></a>
+			</li>
+		</ul>
+		<div class="about">
+			<a href="#">天猫旗舰店</a><span></span>
+			<a href="#">天猫官方包店</a><span></span>
+			<a href="#">京东旗舰店</a>
+		</div>
+		<ul class="imgsq">
+			<li><a href="#"><img src="img/electronic_trade_license.cf682448.png" alt=""><span>上海工商</span></a></li>
+			<li><a href="#">沪ICP备12036020号 © 2013 CHARLES KEITH</a></li>
+			<li><a href=""><img src="img/electronic_info_license.d64fddf4.png"><span>沪公网安备 31010102005062号</span></a></li>
+		</ul>
+	</div>
+</div>

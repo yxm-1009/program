@@ -1,0 +1,242 @@
+body,p,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,hr,td,input,textarea {
+	margin: 0;
+	padding: 0;
+}
+
+ul,ol {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #000000;
+}
+
+img {
+	border: 0;
+}
+
+html {
+	width: 100%;
+}
+
+body {
+	width: 100%;
+	font-family: "微软雅黑";
+	overflow-x: hidden;
+	background-color: #f9f9f9;
+}
+
+.layoutBox{
+	width: 854px;
+	margin: 10px auto;
+}
+.layoutBoxHeader{
+	padding: 0 34px 34px;
+	background-color: #fff;
+	text-align: center;
+}
+.logo{
+	width: 49px;
+	height: 48px;
+	display: block;
+	margin: 0 auto;
+	padding: 0 0 40px 0;
+	background: url(../img/register/milogo.png) no-repeat top center;
+}
+.layoutBoxHeader>span{
+	color: #333;
+	line-height: 1.5;
+	font-size: 30px;
+}
+.regMain{
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.Pass{
+	display: none;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	background-color: #fff;
+	padding: 10px;
+	height: 60%;
+}
+.pass{
+	width: 100%;
+	outline: none;
+	height: 40px;
+	line-height: 40px;
+	vertical-align: middle;
+	border: 1px solid #e8e8e8;
+	color: #555;
+	cursor: pointer;
+	box-sizing: border-box;
+	margin: 50px 0;
+	background-color: #fff;
+}
+.pass>input{
+	display: inline-block;
+	border: 0;
+	padding: 0 10px;
+	outline: none;
+	width: 94%;
+}
+.reginBox{
+	width: 332px;
+	margin: 0 auto;
+	padding: 30px 0;
+	text-align: left;
+	color: #666;
+}
+
+.Account>p{
+	padding-bottom: 5px;
+	color: #333;
+	font-weight: normal;
+}
+.Account>select{
+	display: block;
+	width: 100%;
+	height: 40px;
+	padding: 0 10px ;
+	outline: none;
+	height: 40px;
+	padding-left: 14px;
+	line-height: 40px;
+	vertical-align: middle;
+	border: 1px solid #e8e8e8;
+	color: #555;
+	cursor: pointer;
+}
+.Account>span{
+	font-size: 14px;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	color: #666;
+	display: block;
+}
+.phone{
+	display: flex;
+	width: 100%;
+	height: 40px;
+	outline: none;
+	height: 40px;
+	line-height: 40px;
+	vertical-align: middle;
+	border: 1px solid #e8e8e8;
+	color: #555;
+	cursor: pointer;
+	box-sizing: border-box;
+	margin: 0 0 10px;
+}
+.phone>select{
+	padding-left: 10px;
+	width: 74px;
+	border: 0;
+}
+.phone>input{
+	flex: 1;
+	border: 0;
+	padding: 0 10px;
+	outline: none;
+	border-left: 1px solid #e8e8e8;
+}
+select{
+	display: block;
+	border: 0;
+	outline: none;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background: url(../img/register/xia.png) no-repeat 95% 14px;
+	background-size: 10px;
+	
+}
+.phone select{
+	background: url(../img/register/xia.png) no-repeat 80% 14px;
+	background-size: 10px;
+}
+.alert{
+	display: none;
+	line-height: 20px;
+	color: #ff6700;
+	font-size: 14px;
+	margin: 5px 0;
+}
+.alert>i{
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	font-size: 12px;
+	background-color: #FF6700;
+	color: #fff;
+	text-align: center;
+	line-height: 13px;
+	border-radius: 10px;
+	font-style: normal;
+	font-weight: 900;
+	margin: 3px 5px 0 0 ;
+}
+button{
+	width: 332px;
+	height: 42px;
+	margin: 0 auto;
+	line-height: 40px;
+	text-align: center;
+	font-size: 14px;
+	display: block;
+	cursor: pointer;
+	border: 0;
+	background-color: #ff6700;
+	margin-top: 30px;
+	color: #fff;
+	outline: none;
+	border: 1px solid rgba(186,186,186,0.3);
+}
+.layoutBoxfooter{
+	text-align: center;
+	padding-top: 40px;
+	color: #666;
+	font-size: 14px;
+	font-family: arial,"Hiragino Sans GB", "Microsoft YaHei","微軟正黑體","儷黑 Pro", sans-serif;
+	background-color: #fff;
+}
+.layoutBoxfooter>p{
+	padding: 10px 0;
+	cursor: pointer;
+	display: inline-block;
+}
+.layoutBoxfooter a{
+	font-weight: 900;
+	color: #333333;
+}
+
+.footer{
+	padding: 20px 0 0 ;
+	color: #9d9d9d;
+	font-size: 14px;
+	text-align: center;
+}
+.footer a{
+	color: #9d9d9d;
+}
+.footer>ul{
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+.footer>ul>li span{
+	padding: 0 10px;
+}
+.footer .jianti{
+	color: #333;
+}
+.footer a:hover{
+	color: #333;
+}
+.footer>p{
+	padding: 10px 0;
+}

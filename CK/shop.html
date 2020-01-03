@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/shop.css" />
+	</head>
+	<body>
+		<div id="bodyMain">
+			<!-- 引入头部 -->
+			<div id="body_top_btn"></div>
+			<div id="service">联系<br>客服</div>
+			<div id="robot">
+				<div class="robot">
+					<div class="robot_tit">
+						<p>CHARLES&nbsp;&nbsp;& &nbsp;&nbsp;KEITH</p>
+					</div>
+					<div class="robot_main">
+						<span class="alertCont">您好，欢迎光临，客服文庆为您服务，请问有什么可以帮到您的呢</span>
+						<div class="robotLeft">
+							<img src="img/86e3d62d7b374d46a2988fa44f8507db.jpg">
+							<i></i>
+							<span>欢迎光临CHARLES & KEITH官方网站~季末折扣进行中，当季时髦单品五折起；
+								另有折上折专区商品享2件9折，3件及以上8折，详情请见“季末折上折”版块，更多优选商品期待您的选购~</span>
+						</div>
+					</div>
+					<div class="robot_send">
+						<div class="robot_send_cont">
+							<textarea id="textArea" placeholder="请输入产品型号"></textarea>
+						</div>
+						<div class="robot_send_btn">
+							<button type="button" class="button_close">结束服务</button>
+							<button type="button" class="button_send">发送</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="HEADERLOAD"></div>
+			<div class="section">
+				<ul class="current">
+					<li><span>查看购物车</span></li>
+					<li><span>订单结算</span></li>
+				</ul>
+				<div class="sectionMain">
+					<div class="sectionMaiNull">
+						<p>您的购物车是空的，立即去<a href="commodity.html">商城</a>逛逛</p>
+					</div>
+					<div class="sectionMainGoods">
+						<div class="sectionTit">
+							<ul class="TitList">
+								<li class='TitItem ChooseItem'>选择</li>
+								<li class='TitItem imgItem'>图片</li>
+								<li class='TitItem goodsItem'>商品</li>
+								<li class='TitItem priceItem'>价格</li>
+								<li class='TitItem numItem'>数量</li>
+								<li class='TitItem totleItem'>小计</li>
+								<li class='TitItem DelItem'>操作</li>
+							</ul>
+						</div>
+
+						<div class="MainGoods"></div>
+
+						<div class="balance">
+							<ul class="balanceMain">
+								<li class="balanceChoose">
+									<span class="choose"></span>
+									<span>全选</span>
+									<p>删除</p>
+								</li>
+								<li id="LoginTest">登录后确认是否享有优惠</li>
+								<li>
+									<h4 id="numsum">1</h4> 件商品
+								</li>
+								<li>商品金额<p class="balancePrice">￥<span id="bala">399.00</span>元</p>
+								</li>
+								<li><a href="index.html">继续购物</a>
+									<div id="btn">提交订单</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- footer -->
+			<div class="FOOTERLOAD"></div>
+		</div>
+	</body>
+</html>
+<script src="js/jquery.js"></script>
+<script src="js/robot.js"></script>
+<script src="js/index.js"></script>
+<script>
+	$(function() {
+		$(".HEADERLOAD").load('load/header.html', function() {
+			let nav_list = $('.nav_item');
+			let menu_list = $('.menu_list');
+			$('.nav').sub_mouse(nav_list, menu_list);
+			$(".header_main_admin").inSS();
+			$("body").top();
+			$('#service').click(function() {
+				$("#robot").show();
+				$("html").add("body").css({
+					"overflow": "hidden"
+				})
+			});
+			$(function() {
+				let oTextArea = $("#textArea");
+				let oRobotMain = $(".robot_main");
+				let oButtonSend = $(".button_send");
+				let oButtonClose = $(".button_close");
+				$("#robot").robot(oTextArea, oRobotMain, oButtonSend, oButtonClose);
+			});
+			let localData = JSON.parse(localStorage.getItem('data'));
+			let j = 0;
+			for (let i = 0; i < localData.length; i++) {
+				j += Number(localData[i].num);
+			}
+			$("#shop_num").html(j);
+		});
+		$('.FOOTERLOAD').load('load/footer.html');
+		$.fn.extend({
+			// 动态创建
+			getlocal: function(mainNull, mainGoods, GoodsList) {
+				let localData = JSON.parse(localStorage.getItem('data'));
+				creatItem();
+
+				function creatItem() {
+					if (localStorage.getItem('data') != null) {
+						mainNull.hide();
+						mainGoods.show();
+						for (let i = 0, j = 0; i < localData.length; i++) {
+							// console.log(localData[i].TtemId);
+							let frame =
+								`<ul class="MainItem">
+								<li class='TitItem ChooseItem'><span class="choose"></span></li>
+								<li class='TitItem imgItem'><a href="#"><img src="${localData[i].imgSrc}" alt=""></a></li>
+								<li class='TitItem goodsItem'><span class="tit">${localData[i].ItemTit}[${localData[i].TtemModel}]</span></li>
+								<li class='TitItem priceItem'><p>￥<span class="price">${localData[i].TtemPrice}</span><p></li>
+								<li class='TitItem numItem'>
+									<button>-</button>
+									<span class="count">${localData[i].num}</span>
+									<button>+</button>
+								</li>
+								<li class='TitItem totleItem'><p class="totle">￥<span class="balace">${localData[i].totalPrice}</span></p></li>
+								<li class='TitItem DelItem'><span class="del">删除</span><span class="ids" style="display:none">${localData[i].TtemId}</span></li>
+							</ul>`;
+							GoodsList.append(frame);
+							j += Number(localData[i].totalPrice);
+							$("#bala").html(j);
+						}
+						OperateBtn();
+					} else {
+						mainGoods.hide();
+						mainNull.show();
+					}
+				}
+				// 操作按钮
+				function OperateBtn() {
+					let arrItemUls = $(".MainItem");
+					for (let i = 0; i < arrItemUls.length; i++) {
+						let index = $(this).index();
+						// 减少货物的操作
+						let reduce = arrItemUls.eq(i).children('.numItem').children('button').eq(0);
+						reduce.eq(index).click(function() {
+							ReduceGoods($(this));
+							/* DelBtn($(this)); */
+						});
+						// 增加货物的操作
+						let add = arrItemUls.eq(i).children('.numItem').children('button').eq(1);
+						add.eq(index).click(function() {
+							AddGoods($(this));
+							// DelBtn($(this));
+						});
+					}
+					DelBtn();
+					goodsNum();
+				}
+				// changeLocal改变localstorage的值
+				function changeLocal(num,addGoodsbtn){
+					let LoginIds = Number(addGoodsbtn.parent().next().next().children('.ids').html()); //寻找商品ID
+					let LoginIndex = $(addGoodsbtn).parent().parent().index();//localData的下标
+					if (LoginIds === localData[LoginIndex].TtemId) {
+						localData[LoginIndex].num = num;
+						localData[LoginIndex].totalPrice = num*localData[LoginIndex].TtemPrice;
+						// console.log(localData[LoginIndex]);
+					}
+					localStorage.setItem('data', JSON.stringify(localData));
+				}
+				// 增加货物
+				function AddGoods(addGoodsbtn) {
+					let num = Number(addGoodsbtn.prev().html());
+					num++;
+					addGoodsbtn.prev().html(num);
+					goodsNum();
+					numPrice(num, addGoodsbtn);
+					sumprice();
+					changeLocal(num, addGoodsbtn);
+				};
+				// 减少货物
+				function ReduceGoods(reduceGoodsbtn) {
+					let num = Number(reduceGoodsbtn.next().html());
+					num--;
+					if (num < 1) {
+						reduceGoodsbtn.next().html(1);
+						alert('该宝贝不能减少了呦~')
+					} else {
+						reduceGoodsbtn.next().html(num);
+						goodsNum();
+						numPrice(num, reduceGoodsbtn);
+						sumprice();
+						changeLocal(num, addGoodsbtn);
+					}
+				};
+				// 计算商品数量
+				function goodsNum() {
+					let sum = 0;
+					for (let i = 0; i < $(".count").length; i++) {
+						sum += Number($(".count").eq(i).html());
+					}
+					$("#numsum").html(sum);
+					
+				};
+				// 计算小计和
+				function numPrice(num, btn) {
+					let pri = Number(btn.parent().prev().children('p').children('span').html()); //单价
+					let sum = btn.parent().next().children('p').children('span');
+					let a = 0;
+					sum.html(num * pri);
+				};
+				// 计算总计和
+				function sumprice() {
+					let sum = 0;
+					for (let i = 0; i < $(".balace").length; i++) {
+						sum += Number($(".balace").eq(i).html());
+					}
+					$("#bala").html(sum);
+				};
+				// 删除商品
+				// function DelBtn(btn){
+				// 	let del = btn.parent().next().next().children('span');
+				// 	del.click(function(){
+				// 		alert(1);
+				// 	})
+				// }
+				function DelBtn() {
+					$(".MainItem").on('click', ".del", function() {
+						// for (let i = 0; i < $(this).length; i++) {};
+						if (!confirm('确认删除吗？')) {
+							return false;
+						} else {
+							let LoginIds = Number($(this).parent().children('.ids').html()); //寻找商品ID
+							let LoginIndex = $(this).parent().parent().index();//localData的下标
+							// for (let i = 0; i < localData.length; i++) {}
+							if (LoginIds === localData[LoginIndex].TtemId) {
+								localData.splice(LoginIndex, 1);
+							}
+							// 判断localstorage的值为空
+							localStorage.setItem('data', JSON.stringify(localData));
+							if (localStorage.getItem('data') == '[]') {
+								mainGoods.hide();
+								mainNull.show();
+							}
+							// 实时更新商品数量
+							let j = 0;
+							for (let i = 0; i < localData.length; i++) {
+								j += Number(localData[i].num);
+							}
+							$("#shop_num").html(j);
+						}
+						$(this).parent().parent().remove();
+					});
+				};
+
+			}
+		});
+		$(".section").getlocal($('.sectionMaiNull'), $('.sectionMainGoods'), $('.MainGoods'));
+	})
+</script>

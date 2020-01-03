@@ -1,0 +1,255 @@
+body,p,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,hr,td,input,textarea {
+	margin: 0;
+	padding: 0;
+}
+
+ul,ol {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #000000;
+}
+
+img {
+	border: 0;
+}
+
+html {
+	width: 100%;
+}
+
+body {
+	width: 100%;
+	font-family: "微软雅黑";
+	overflow-x: hidden;
+}
+
+.header{
+	width: 1130px;
+	margin: 0 auto;
+}
+.header>a{
+	display: block;
+	height: 98px;
+	background: url(../img/login/mistore_logo.png) no-repeat left center;
+}
+.section{
+	width: 100%;
+	height: 588px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.section>.sectionBg{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: #fff url(../img/login/2e3028877530620f50043efb01575e3d.jpg) no-repeat top center;
+}
+.loginBox{
+	position: absolute;
+	bottom: 0;
+	width: 1130px;
+	min-height: 556px;
+	margin:  0 auto;
+}
+.login{
+	width: 410px;
+	background-color: #fff;
+	position: absolute;
+	right: 0;
+}
+.loginTit{
+	padding: 27px 0 24px;
+	text-align: center;
+	font-size: 24px;
+	color: #666;
+	display: flex;
+	justify-content: center;
+}
+.loginTit>a{
+	color: #666;
+	display: block;
+	padding: 0 20px;
+}
+.loginTit>a:first-child{
+	border-right: 2px solid #e0e0e0;
+}
+.loginContBox{
+	margin: 0 auto;
+	color: #757575;
+	width: 348px;
+	padding-bottom: 0;
+}
+.admin{
+	border: 1px solid #e0e0e0;
+	margin: 16px 0;
+}
+.admin>input{
+	width: 316px;
+	border: 0;
+	height: 22px;
+	line-height: 22px;
+	padding: 13px 16px 13px 14px;
+	display: block;
+	outline: none;
+}
+.submit{
+	height: 50px;
+	margin-top: 10px;
+	background-color: #FF6700;
+	border: 0;
+}
+.submit button{
+	border: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #FF6700;
+	display: block;
+	margin-bottom: 14px;
+	text-align: center;
+	font-size: 14px;
+	color: #fff;
+	cursor: pointer;
+	line-height: 30px;
+}
+.alert{
+	display: none;
+	line-height: 20px;
+	color: #ff6700;
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+.alert>i{
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	font-size: 12px;
+	background-color: #FF6700;
+	color: #fff;
+	text-align: center;
+	line-height: 13px;
+	border-radius: 10px;
+	font-style: normal;
+	font-weight: 900;
+	margin: 3px 5px 0 0 ;
+}
+.loginType{
+	font-size: 14px;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 0 30px;
+}
+.loginType>a{
+	color: #FF6700;
+}
+.loginType>p>a{
+	color: #999999;
+}
+.loginType>p>span{
+	display: inline-block;
+	padding: 0 5px;
+	color: #999999;
+}
+.otherType{
+	font-size: 14px;
+	padding-top: 100px;
+}
+.otherType>p{
+	display: flex;
+	align-items: center;
+}
+.otherType>p>i{
+	display: inline-block;
+	height: 1px;
+	background-color: #e0e0e0;
+	width: 36%;
+}
+.otherType>p>span{
+	display: inline-block;
+	padding: 0 5px;
+}
+.otherType>div{
+	display: flex;
+	padding: 10px 60px 54px ;
+	justify-content: space-around;
+}
+.otherType>div>a{
+	width: 30px;height: 30px;
+	display: block;
+	text-align: center;
+	background-color: #008000;
+	color: #fff;
+	border-radius: 50%;
+}
+.otherType>div>a:nth-child(1){
+	background-color: #0288d1;
+}
+.otherType>div>a:nth-child(2){
+	background-color: #d32f2f;
+}
+.otherType>div>a:nth-child(3){
+	background-color: #0ae;
+}
+.otherType>div>a:nth-child(4){
+	background-color: #00d20d;
+}
+.otherType>div i{
+	display: block;
+	margin: 4px 0 0;
+	font-size: 20px;
+}
+
+.loginRwm{
+	display: none;
+	position: relative;
+	bottom: 0;
+	width: 410px;
+	height: 342px;
+	background-color: #FFF;
+}
+.loginRwm>img{
+	width: 180px;
+    height: 180px;
+	display: block;
+	margin: 130px auto 0;
+	
+}
+.loginRwm>p{
+	padding-top: 18px;
+	font-size: 14px;
+	color: #757575;
+	text-align: center;
+}
+.loginRwm span{
+	color: #FF6700;
+}
+.footer{
+	padding: 100px 0 0 ;
+	color: #757575;
+	font-size: 14px;
+	text-align: center;
+}
+.footer a{
+	color: #757575;
+}
+.footer>ul{
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+.footer>ul>li span{
+	padding: 0 10px;
+}
+.footer .jianti{
+	color: #333;
+}
+.footer a:hover{
+	color: #333;
+}
+.footer>p{
+	padding: 10px 0 30px;
+}

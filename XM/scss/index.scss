@@ -1,0 +1,16 @@
+// @mixin
+// // Colors
+// $TopNavBgc: #333;
+// .TopNav{
+// 	background-color: $TopNavBgc;
+// }
+
+@charset "utf-8";
+// 这是变量
+$mycolor:green;
+$width: 300px;
+#Box{
+	height: 100px;
+	width: $width;
+	background-color: $mycolor;
+}

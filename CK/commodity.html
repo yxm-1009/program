@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/commodity.css" />
+	</head>
+	<body>
+		<div id="bodyMain">
+			<!-- 引入头部 -->
+			<div id="body_top_btn"></div>
+			<div id="service">联系<br>客服</div>
+			<div id="robot">
+				<div class="robot">
+					<div class="robot_tit">
+						<p>CHARLES&nbsp;&nbsp;& &nbsp;&nbsp;KEITH</p>
+					</div>
+					<div class="robot_main">
+						<span class="alertCont">您好，欢迎光临，客服文庆为您服务，请问有什么可以帮到您的呢</span>
+						<div class="robotLeft">
+							<img src="img/86e3d62d7b374d46a2988fa44f8507db.jpg">
+							<i></i>
+							<span>欢迎光临CHARLES & KEITH官方网站~季末折扣进行中，当季时髦单品五折起；
+								另有折上折专区商品享2件9折，3件及以上8折，详情请见“季末折上折”版块，更多优选商品期待您的选购~</span>
+						</div>
+					</div>
+					<div class="robot_send">
+						<div class="robot_send_cont">
+							<textarea id="textArea" placeholder="请输入产品型号"></textarea>
+						</div>
+						<div class="robot_send_btn">
+							<button type="button" class="button_close">结束服务</button>
+							<button type="button" class="button_send">发送</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="HEADERLOAD"></div>
+			<div class="section">
+				<div class="section_tit">
+					<div class="titItem left">
+						<select>
+							<option value="123456">1234567</option>
+							<option value="123456">asdfgh</option>
+							<option value="123456">asdfg</option>
+						</select>
+					</div>
+					<div class="titItem cent">
+						<p> 筛选条件：颜色,特征等</p>
+					</div>
+					<div class="titItem right">
+						<p>共<span class="price_item"></span>件商品</p>
+						<img src="img/lg1.jpg" alt="" class="itemW_3">
+						<img src="img/lg2.jpg" alt="" class="itemW_4">
+						<img src="img/lg3.jpg" alt="" class="itemW_6">
+					</div>
+				</div>
+				<div class="goodsList"></div>
+			</div>
+			<!-- footer -->
+			<div class="FOOTERLOAD"></div>
+		</div>
+	</body>
+</html>
+<script src="js/jquery.js"></script>
+<script src="js/robot.js"></script>
+<script src="js/index.js"></script>
+<script>
+	header();
+
+	function header() {
+		$(".HEADERLOAD").load('load/header.html', function() {
+			let nav_list = $('.nav_item');
+			let menu_list = $('.menu_list');
+			$('.nav').sub_mouse(nav_list, menu_list);
+			$(".header_main_admin").inSS();
+			$("body").top();
+			$('#service').click(function() {
+				$("#robot").show();
+				$("html").add("body").css({
+					"overflow": "hidden"
+				});
+			});
+			$(function() {
+				let oTextArea = $("#textArea");
+				let oRobotMain = $(".robot_main");
+				let oButtonSend = $(".button_send");
+				let oButtonClose = $(".button_close");
+				$("#robot").robot(oTextArea, oRobotMain, oButtonSend, oButtonClose);
+			});
+			let localData = JSON.parse(localStorage.getItem('data'));
+			let j = 0;
+			if (localData!=null) {
+				for (let i = 0; i < localData.length; i++) {
+					j += Number(localData[i].num);
+				}
+			}
+			
+			$("#shop_num").html(j);
+
+		});
+	}
+	$('.FOOTERLOAD').load('load/footer.html');
+	// 通过ajax获取json数据
+	$.fn.extend({
+		Automatic: function() {
+			$.ajax({
+				url: 'commodity.json',
+				type: 'get',
+				success: function(str) {
+					fun(str);
+				}
+			});
+
+			function fun(str) {
+				$(".price_item").html(str.length);
+				for (let i = 0; i < str.length; i++) {
+					let newstr =
+						`<ul class="listGoods">
+							<li><img src="${str[i].imgsrc}"></li>
+							<li>${str[i].title}</li>
+							<li>${str[i].model}</li>
+							<li class="price_li">￥<span>${str[i].price}</span></li>
+							<li style="display: none;">${str[i].goodsId}</li>
+						</ul>`;
+					$(".goodsList").append(newstr);
+				}
+				itemW($(".listGoods"), $(".listGoods img"));
+			};
+
+			function itemW(goods, imgw) {
+				$(".itemW_3").click(function() {
+					goods.css({
+						width: 400 + "px",
+						height: 668 + "px"
+					})
+					imgw.css({
+						padding: 10 + "px",
+						width: 380 + "px",
+						height: 570 + "px"
+					})
+				})
+				$(".itemW_4").click(function() {
+					goods.css({
+						width: 300 + "px",
+						height: 518 + "px"
+					});
+					imgw.css({
+						padding: 10 + "px",
+						width: 280 + "px",
+						height: 420 + "px"
+					})
+				})
+				$(".itemW_6").click(function() {
+					goods.css({
+						width: 200 + "px",
+						height: 368 + "px"
+					})
+					imgw.css({
+						padding: 10 + "px",
+						width: 180 + "px",
+						height: 270 + "px"
+					})
+				})
+			}
+		},
+		Purchased: function(newarr) { //,flag
+			let localMain = JSON.parse(localStorage.getItem('data'));
+			let arr = [];
+			arr = arr.concat(localMain);
+			if (arr[0] == null) {
+				arr = [];
+			}
+			console.log(arr);
+			let TtemPrice = Number($(this).children('li').eq(3).children('span').html());
+			let TtemId = Number($(this).children('li').eq(4).html());
+			let ListItem = {
+				"imgSrc": $(this).children('li').eq(0).children('img').attr("src"),
+				"ItemTit": $(this).children('li').eq(1).html(),
+				"TtemModel": $(this).children('li').eq(2).html(),
+				"TtemPrice": TtemPrice,
+				"TtemId": TtemId,
+				"totalPrice": TtemPrice,
+				"num": 1
+			};
+			let flag = false;
+			for (let i = 0; i < arr.length; i++) {
+				if (arr[i].TtemId == TtemId) {
+					arr[i].num++;
+					arr[i].totalPrice = arr[i].TtemPrice * arr[i].num;
+					flag = true;
+				}
+			}
+			if (flag == false) {
+				arr.push(ListItem);
+			}
+			localStorage.setItem('data', JSON.stringify(arr));
+		},
+
+	});
+	// 商品存入localstorage
+	$(".section").Automatic();
+	$(function() {
+		let localData = JSON.parse(localStorage.getItem('data'));
+		let j = 0;
+		if (localData!=null) {
+			for (let i = 0; i < localData.length; i++) {
+				j += Number(localData[i].num);
+			}
+		}
+		
+		let arr = [];
+		$(".goodsList").on('click', ".listGoods", arr, function() {
+			j++;
+			$("#shop_num").html(j);
+			let index = $(this).index();
+			$('.listGoods').eq(index).Purchased(arr);
+		})
+	});
+</script>

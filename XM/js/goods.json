@@ -1,0 +1,31 @@
+{
+	"Sale": [
+		{"imgsrc":"img/index/pms_1571038766.41824452.jpg","title":"MIJOY 抽纸青春版 24包/箱","model":"精选原生竹浆，健康环保","price":"27.9","cost":"32.9元"},
+		{"imgsrc":"img/index/c97afe622ee275fe873abd9f80a31e6d.jpg","title":"小米路由器4A千兆版","model":"双核全千兆AC1200路由器","price":"129","cost" :"169元"},
+		{"imgsrc":"img/index/pms_1571660595.33144009.jpg","title":"米家魔方转换器 有线版","model":"方寸之间,能量无限米家魔方转换器 有线版","price":"59.00","cost" :"69元"},
+		{"imgsrc":"img/index/ff33484e5f8889e926c1a091f49b5097.jpg","title":"小米手环3 热力橙 ","model":"全新OLED可触摸大屏","price":"99.00","cost":"139元"},
+		{"imgsrc":"img/index/fda963ae642e1b46a18d339ddad13f82.jpg","title":"米家小饭煲 白色","model":"小容量不浪费","price":"169.00","cost":"199元"},
+		{"imgsrc":"img/index/f7587a596acd86c0b6dd74ec3ab67c3a.jpg","title":"小米蓝牙耳机（K歌版）故宫特别版 黑色","model":"“仪”副耳机，顽音系列","price":"179.00","cost":"399元"},
+		{"imgsrc":"img/index/5880bf1e6ff46c9dbb015c4e9c2834be.jpg","title":"米家床头灯 金色","model":"如梦如幻，多彩光世界","price":"169.00","cost" :"249元"},
+		{"imgsrc":"img/index/c78de362e75e32746942b1f7193d59f5.jpg","title":"小米米家视频门铃 套餐","model":"是门铃也是门前的护卫","price":"209.00","cost" :"299元"},
+		{"imgsrc":"img/index/0a92fc0ca09b2243a583db71eb0a7186.jpg","title":"小米净水器1A（厨下式） 白色","model":"小身材节省空间，大流量直出纯净水","price":"1349.00","cost":"1499元"},
+		{"imgsrc":"img/index/e8c6f3a4318f82ad8b577bfe45a43020.jpg","title":"Yeelight LED 吸顶灯 白色","model":"场景联动，好光好自然","price":"319.00","cost":"379元"},
+		{"imgsrc":"img/index/d8d4b3652df4651042958d26f39fc9a0.jpg","title":"小米米家视频门铃 单品","model":"是门铃也是门前的护卫","price":"179.00","cost":"269元"},
+		{"imgsrc":"img/index/e38e51819728173d71aaf38027b165d0.jpg","title":"米家无线除螨仪 白色","model":"每个家庭都需要一台除螨仪","price":"499.00","cost":"549元"}
+	],
+	"All": [
+		{"imgsrc":"img/allListImg/pms_1560238127.40319869.png","name":"小米手环4 NFC版","model":"「手环4 NFC订金10元抵30元,1月1日0点付尾款！」","desc":"全新 AMOLED 大屏彩显，手环刷公交卡、门禁卡，能用支付宝抬手支付。内置小爱同学语音助理，能遥控智能家居。50米防水，支持游泳模式。还能看微信、看来电、测心率、测睡眠。戴上它，你的改变从今天开始。","price":"299","color":["黑色"]},
+		{"imgsrc":"img/allListImg/pms_1513822496.31335198.jpg","name":"米家电磁炉","model":"","desc":"99挡微调控火 / 支持低温烹饪 / 100+烹饪模式","price":"200","color" :[ "白色"]},
+		{"imgsrc":"img/allListImg/pms_1513864376.45999722.jpg","name":"知吾煮汤锅 米家定制","model":"","desc":"聚热快，受热匀 / 食品级不粘涂层","price":"99","color" :["黑色"]},
+		{"imgsrc":"img/allListImg/pms_1550475674.33484518.jpg","name":"小米9 街头风保护壳","model":"","desc":"时尚多彩 / 细节出众 / 纤薄轻巧 / 是腕带也是支架","price":"49","color":["黑色"]},
+		{"imgsrc":"img/allListImg/pms_1525316923.85218860.jpg","name":"小米净水器滤芯 PP棉","model":"","desc":"适用于小米净水器600G、厨下式、厨上式 / 拦截5微米以上大颗粒 ／ 有效滤除泥沙颗粒、混浊物、铁锈等","price":"59","color":[ "白色"]},
+		{"imgsrc":"img/allListImg/pms_1525317355.64747798.jpg","name":"小米净水器滤芯 后置活性炭","model":"","desc":"适用于小米净水器600G、厨下式、厨上式 / 进口椰壳活性炭，进一步净化水中残余异味，并改善口感","price":"69","color":[ "白色"]},
+		{"imgsrc":"img/allListImg/pms_1566204458.98572409.jpg","name":"米家运动鞋3","model":"","desc":"爆米花云弹+FREE FORCE复合中底 / 缓震舒适 / Uni-Moulding2.0一体成型科技 / 提升整体舒适度","price":"189","color" :["黑色"]},
+		{"imgsrc":"img/allListImg/pms_1539682892.76448492.png","name":"小米小背包","model":"「5件99元！」","desc":"4 级防泼水 / 10L容量 / 轻盈背负 / YKK 拉链","price":"29","color" :[ "橙色"]},
+		{"imgsrc":"img/allListImg/pms_1538138719.13548106.jpg","name":"小米净水器厨上式增强版","model":"","desc":"RO反渗透技术 / 实时监测TDS水质 / 自主换芯 / RO膜寿命因地区、水质、季节及用量有所差异","price":"1499","color":[ "白色"]},
+		{"imgsrc":"img/allListImg/pms_1573377996.94188526.jpg","name":"米家扫拖一体机器人 配件","model":"「适用于米家扫拖一体机器人」","desc":"一体式设计边刷 / 高效主刷洁净清扫 / 主刷盒单手操作拆卸方便 / 一体化滤网设计 / 精细纤维拖布 / 大容量水箱","price":"39","color":["防潮垫"]},
+		{"imgsrc":"img/allListImg/pms_1573127122.84758967.jpg","name":"小米旅行箱 青春款","model":"","desc":"可选尺寸：20英寸、24英寸，环保材料，轻便重量，坚韧有型，4色可选卫","price":"199","color":[ "蓝色"]},
+		{"imgsrc":"img/allListImg/pms_1528169650.48795564.jpg","name":"最生活浴巾 青春系列","model":"","desc":"阿瓦提长棉绒 / 3秒吸水 / 580克加厚","price":"49","color":[ "绿色"]}
+	]
+	
+}

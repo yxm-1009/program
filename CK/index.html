@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>CHARLES KEITH</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+	<body>
+		<div id="bodyMain">
+			<!-- 引入头部 -->
+			<div id="body_top_btn"></div>
+			<div id="service">联系<br>客服</div>
+			<div id="robot">
+				<div class="robot">
+					<div class="robot_tit">
+						<p>CHARLES&nbsp;&nbsp;& &nbsp;&nbsp;KEITH</p>
+					</div>
+					<div class="robot_main">
+						<span class="alertCont">您好，欢迎光临，客服文庆为您服务，请问有什么可以帮到您的呢</span>
+						<div class="robotLeft">
+							<img src="img/86e3d62d7b374d46a2988fa44f8507db.jpg">
+							<i></i>
+							<span>欢迎光临CHARLES & KEITH官方网站~季末折扣进行中，当季时髦单品五折起；
+								另有折上折专区商品享2件9折，3件及以上8折，详情请见“季末折上折”版块，更多优选商品期待您的选购~</span>
+						</div>
+						<!-- <div class="robotRight">
+							<img src="img/2f9d0cfa731c46bfa3c32540502e81bc.jpg" >
+							<i></i>
+							<span>45678</span>
+						</div> -->
+					</div>
+					<div class="robot_send">
+						<div class="robot_send_cont">
+							<textarea id="textArea" placeholder="请输入产品型号"></textarea>
+						</div>
+						<div class="robot_send_btn">
+							<button type="button" class="button_close">结束服务</button>
+							<button type="button" class="button_send">发送</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="HEADERLOAD"></div>
+			<!-- 标语 -->
+			
+			<!-- 轮播图 -->
+			<div class="slice">
+				<ul>
+					<li class='dou'></li>
+					<li class='dou'></li>
+					<li class='dou'></li>
+				</ul>
+				<div class="sliceBox">
+					<div class="sliceItem"><img src="img/66bb7397fd984bd48652b20c63465bb4.jpg"></div>
+					<div class="sliceItem"><img src="img/6186c41469a84d9589bde62e56da9346.jpg"></div>
+					<div class="sliceItem"><img src="img/4a7760f464294af887b6539e46c304db.jpg"></div>
+					<div class="sliceItem"><img src="img/66bb7397fd984bd48652b20c63465bb4.jpg"></div>
+					<div class="sliceItem"><img src="img/6186c41469a84d9589bde62e56da9346.jpg"></div>
+				</div>
+				<div class="btn prev"></div>
+				<div class="btn next"></div>
+			</div>
+			<!-- 折扣图 -->
+			<div class="discount">
+				<a href="#"><img src="img/96d14aa8bf4c4b3b8a17582cbebf6d92.jpg" alt=""></a>
+				<a href="#"><img src="img/ab4f1e4121324ecaa5fe78cae9eb27d7.jpg" alt=""></a>
+			</div>
+			<!-- 商品图1 -->
+			<div class="goods">
+				<div class="goods_tit"><a href="#">更多></a></div>
+				<div class="goodImgBox">
+					<a href="#"><img src="img/e1426a15e9dd4b6d852a271aba5a12f8.jpg"></a>
+				</div>
+			</div>
+			<div class="goods">
+				<div class="goods_tit"><a href="#">更多></a></div>
+				<div class="goodImgBox">
+					<a href="#"><img src="img/32b8c8aae94145ea91f6b02e513c188b.jpg"></a>
+				</div>
+			</div>
+			<div class="goods">
+				<div class="goods_tit"><a href="#">更多></a></div>
+				<div class="goodImgBox">
+					<a href="#"><img src="img/c1aa84a0649a462382f816c0b5e6d3b6.jpg"></a>
+				</div>
+			</div>
+			<div class="goods">
+				<div class="goods_tit"><a href="#">更多></a></div>
+				<div class="goodImgBox">
+					<a href="#"><img src="img/29f4b1af3305451facf24fc22f6d34f2.jpg"></a>
+				</div>
+			</div>
+			<!-- footer -->
+			<div class="FOOTERLOAD"></div>
+		</div>
+	</body>
+</html>
+<script src="js/jquery.js"></script>
+<script src="js/robot.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$.fn.extend({
+			top: function() {
+				$("#body_top_btn").hide();
+				$(window).scroll(function() {
+					if ($(window).scrollTop() > 200) {
+						// alert(1);
+						$("#body_top_btn").fadeIn();
+					} else {
+						$("#body_top_btn").fadeOut();
+					}
+				});
+				$("#body_top_btn").click(function() {
+					$('body,html').animate({
+						scrollTop: 0
+					}, 500);
+					return false;
+				});
+			},
+			inSS: function() {
+				let flag = false;
+				$('#ss').click(function() {
+					if (flag == false) {
+						$(".inputss").show();
+						flag = true;
+					} else {
+						$(".inputss").hide();
+						flag = false;
+					}
+				})
+				$(".inputss").click(function() {
+					$(this).css({
+						borderColor: '#333'
+					})
+				})
+
+			},
+
+			sub_mouse: function(nav_list, menu_list) {
+				nav_list.mouseover(function() {
+					menu_list.eq($(this).index()).show().siblings().hide();
+				});
+				nav_list.mouseout(function() {
+					menu_list.hide();
+				});
+				menu_list.mouseover(function() {
+					$(this).show();
+				});
+				menu_list.mouseleave(function() {
+					$(this).hide();
+				});
+			},
+			slide: function() {
+				let slice = $(this);
+				let index = 1;
+				let time = null;
+				let outWidth = $('.sliceItem').width(); // 外层盒子(可视窗口)的宽度
+				let sliceItem = $('.sliceItem').length; // 得到所有的移动的内层盒子的个数
+				let sliceBox = $('.sliceBox'); // 得到移动的外层盒子
+				let doudou = $('.dou'); //得到包含所有豆豆的数组
+
+				autoPlay();
+				// 定时器,实现图片自动播放
+				function autoPlay() {
+					time = setInterval(function() {
+						index++;
+						changeSlide();
+						changDoudou();
+					}, 3000);
+				}
+				// 图片切换
+				function changeSlide() {
+					sliceBox.animate({
+						left: -1 * outWidth * index + 'px'
+					}, 1000);
+					if (index >= sliceItem - 1) {
+						sliceBox.animate({
+							left: -outWidth + 'px'
+						}, 0)
+						index = 1;
+					}
+					if (index < 1) {
+						sliceBox.animate({
+							left: -(sliceItem - 2) * outWidth + 'px'
+						}, 0);
+						index = sliceItem - 2;
+					}
+				}
+				// 小圆点切换
+				function changDoudou() {
+					doudou.eq(index - 1).css({
+							backgroundColor: 'red'
+						})
+						.siblings().css({
+							backgroundColor: '#ccc'
+						});
+				}
+				// 点击小圆点,切换图
+				doudou.click(function(event) {
+					let target = event.target;
+					index = $(target).index() + 1;
+					changeSlide();
+					changDoudou();
+				})
+				// 划过时清除定时器 $(element).hover(over，out);
+				slice.hover(function() {
+					$('.btn').show();
+					clearInterval(time);
+				}, function() {
+					$('.btn').hide();
+					autoPlay();
+				});
+				// 点击next使得index++,递增
+				$('.next').click(function() {
+					clearInterval(time);
+					index++;
+					changeSlide();
+					changDoudou();
+				})
+				// 点击prev使得index--,递减
+				$('.prev').click(function() {
+					clearInterval(time);
+					index--;
+					changeSlide();
+					changDoudou();
+				});
+
+			}
+		});
+
+		$(".HEADERLOAD").load('load/header.html', function() {
+			let nav_list = $('.nav_item');
+			let menu_list = $('.menu_list');
+			$('.nav').sub_mouse(nav_list, menu_list);
+			$(".header_main_admin").inSS();
+			let localData = JSON.parse(localStorage.getItem('data'));
+			let j = 0;
+			for (let i = 0; i < localData.length; i++) {
+				j += Number(localData[i].num);
+			}
+			$("#shop_num").html(j);
+		})
+		$('.FOOTERLOAD').load('load/footer.html');
+		$('.slice').slide();
+		$("body").top();
+		$('#service').click(function() {
+			// console.log($("#robot"));
+			$("#robot").show();
+			$("html").add("body").css({
+				"overflow": "hidden"
+			})
+		});
+		$(function() {
+			let oTextArea = $("#textArea");
+			let oRobotMain = $(".robot_main");
+			let oButtonSend = $(".button_send");
+			let oButtonClose = $(".button_close");
+			$("#robot").robot(oTextArea, oRobotMain, oButtonSend, oButtonClose);
+		});
+	});
+</script>

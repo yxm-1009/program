@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>小米账号 — 登录</title>
+		<link rel="shortcut icon" href="img/register/milogo.png" />
+		<link rel="stylesheet" href="css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+	</head>
+	<body>
+		<div class="header">
+			<a href="index.html"></a>
+		</div>
+		<div class="section">
+			<a href="" class="sectionBg"></a>
+			<div class="loginBox">
+				<div class="login">
+					<div class="loginTit">
+						<a href="">账号登录</a>
+						<a href="">扫码登录</a>
+					</div>
+					<div class="listBox">
+						<div class="loginitem loginContBox">
+							<div class="admin ID"><input type="text" placeholder="邮箱/手机号码/小米ID" value="15399445849"/></div>
+							<div class="admin"><input type="password"  placeholder="密码" value="123456789"/></div>
+							<div class="alert"><i>!</i><span>账号或密码有误</span></div>
+							<div class="admin submit"><button>登录</button></div>
+							<div class="loginType">
+								<a>手机短信登录/注册</a>
+								<p><a href="register.html">立即注册</a><span>|</span><a href="">忘记密码</a></p>
+							</div>
+							<div class="otherType">
+								<p>
+									<i></i><span>其他方式登录</span><i></i>
+								</p>
+								<div>
+									<a href=""><i class="iconfont icon-icon"></i></a>
+									<a href=""><i class="iconfont icon-weibo"></i></a>
+									<a href=""><i class="iconfont icon-zhifubao"></i></a>
+									<a href=""><i class="iconfont icon-weixin"></i></a>
+								</div>
+							</div>
+						</div>
+						<div class="loginitem loginRwm">
+							<img src="img/index/download.png" alt="">
+							<p>使用 <span>小米商城APP</span> 扫一扫<br>小米手机可打开「设置」>「小米帐号」扫码登录</p>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
+		<div class="footer">
+			<ul>
+				<li><a href="" class="jianti">简体</a><span>|</span></li>
+				<li><a href="">繁体</a><span>|</span></li>
+				<li><a href="">English</a><span>|</span></li>
+				<li><a href="">常见问题</a><span>|</span></li>
+				<li><a href="">隐私政策</a></li>
+			</ul>
+			<p>
+				<span>小米公司版权所有-京ICP备10046444-</span>
+				<img src="img/login/ghs.png" alt="">
+				<span>京公网安备11010802020134号-京ICP证110507号</span>
+			</p>
+		</div>
+	</body>
+</html>
+<script src="http://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+<script type="text/javascript">
+	$.fn.extend({
+		choose: function(tit,main){
+			// console.log(tit);	
+			// console.log(main);
+			tit.eq(0).css({color: '#FF6700'});
+			main.eq(0).show().siblings(main).hide();
+			tit.mouseover(function(){
+				let index = $(this).index();
+				tit.eq(index).css({color: '#FF6700'}).siblings(tit).css({color: "#666"});
+				main.eq(index).show().siblings(main).hide();
+			});
+			// tit.click(function(){
+			// 	let index = $(this).index();
+			// 	console.log(index);
+			// 	tit.eq(index).css({color: '#FF6700'}).siblings(tit).css({color: "#666"});
+			// 	main.eq(index).show().siblings(main).hide();
+			// 	console.log(main.eq(index));
+			// });
+		},
+		verify: function(admin,submit,lin){
+			console.log(admin);
+			console.log(submit);
+			console.log(lin);
+			// ---------------------------------------------------------
+			let flag1;
+			admin.eq(0).blur(function() {
+				flag1 = false;
+				let reg = /^(13|15|18|17)\d{9}$/;
+				if (!reg.test($(this).val()) || $(this).val() == '') {
+					lin.fadeIn();
+					flag1 = false;
+				} else {
+					lin.fadeOut();
+					// console.log($(this).val());
+					flag1 = true;
+				}
+			});
+			// ---------------------------------------------------------
+			let flag2;
+			admin.eq(1).blur(function() {
+				flag2 = false;
+				let reg = /^\d{6,16}$/;
+				if (!reg.test($(this).val()) || $(this).val() == '') {
+					// console.log(1);
+					lin.fadeIn();
+					flag2 = false;
+				} else {
+					// console.log(2);
+					lin.fadeOut();
+					flag2 = true;
+				}
+			});
+			// ---------------------------------------------------------
+			submit.click(function() {
+				let tel = admin.eq(0).val();
+				let pass = admin.eq(1).val();
+				if (flag1 && flag2) {
+					$.ajax({
+						//请求方式
+						type: "POST",
+						//请求地址
+						url: "js/login.php",
+						//数据，json字符串
+						data: {
+							tel: tel,
+							pass: pass
+						},
+						//请求成功
+						success: function(str) {
+							if (str == '1') {
+								alert('登陆成功');
+								console.log(tel);
+								sessionStorage.setItem('admin', JSON.stringify(tel));
+								$(location).attr('href', 'index.html');
+							} else {
+								alert('信息有误，操作失败！');
+							}
+						}
+					});
+				}else{
+					alert('请填写信息');
+				}
+			});
+		}
+	})
+	console.log($('.ID').val());
+	$(".login").choose($(".loginTit>a"),$('.loginitem'));
+	$(".loginContBox").verify($('.admin input'),$('.admin button'),$('.alert'));
+</script>

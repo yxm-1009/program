@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>小米手机原装配件</title>
+		<link rel="shortcut icon" href="img/register/milogo.png" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/MoreGoodList.css" />
+	</head>
+	<body>
+		<div class="HeaderBOX"></div>
+		<div class="section">
+			<div class="sectionMain">
+				<!-- <ul class="goods_item">
+					<li class="goodsBigImg"><a href=""><img src="img/allListImg/pms_1560238127.40319869.png" alt=""></a></li>
+					<li class="goodsTit"><span>小米手环4 NFC版</span></li>
+					<li class="goodsPrice"><span>229</span>元</li>
+					<li class="goodsSmallImg"><a href=""><img src="img/allListImg/pms_1560238127.40319869.png" alt=""></a></li>
+				</ul> -->
+			</div>
+		</div>
+		<div class="FooterBOX"></div>
+	</body>
+</html>
+<script src="http://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+<script src="js/Public.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/MoreGoodList.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	// 顶部的引入
+	$('.HeaderBOX').load('load/header.html',function(){
+		// 顶部购物车
+		$(".TopMainRightShop").TopNavShop($('.shopHide'));
+		// 二级菜单
+		$('.headerCont').HeaderNavShow($('.navListBox'), $('.navShow'));
+		// logo
+		$('.header').logoAndso($('.logo'), $('.SearchBox'));
+		// 侧边栏
+		// $('.side').aslide($(".hov"), $(".aSlide"), $('.top'));
+		$('.side').hide();
+		// 相应数据
+		let localData = JSON.parse(localStorage.getItem('data'));
+		let j = 0;
+		if (localData != null) {
+			for (let i = 0; i < localData.length; i++) {
+				j += Number(localData[i].num);
+			}
+			$("#Shop_Count i").html(j);
+		}
+	});
+	// 尾部的引入
+	$('.FooterBOX').load('load/footer.html');
+	
+	// section主体
+	$(".sectionMain").Automatic();
+	// 对商品信息进行传递
+	// let arr = [];//将点击的数据存到此数组中
+	$(".sectionMain").on('click','.goods_item',function(){
+		// 对当前点击元素进行操作
+		let index = $(this).index();
+		$('.goods_item').eq(index).Purchased();
+	})
+</script>

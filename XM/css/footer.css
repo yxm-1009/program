@@ -1,0 +1,145 @@
+
+.footer{
+	width: 100%;
+}
+.footerMain{
+	width: 1226px;
+	margin: 0 auto;
+}
+
+.footerMainTopList>ul{
+	display: flex;
+}
+.footerMainTopList{
+	padding: 24px 0;
+	    border-bottom: 1px solid #e0e0e0;
+}
+.footerMainTopList>ul>li{
+	height: 25px;
+	flex: 1;
+	text-align: center;
+	line-height: 25px;
+	vertical-align: middle;
+	border-left: 1px solid #e0e0e0;
+}
+.footerMainTopList>ul>li:first-child{
+	border: 0;
+}
+.footerMainTopList>ul>li i{
+	font-size: 28px;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+.footerMainTopList>ul>li>a{
+	background-color: rgba(0,0,0,0);
+	color: #757575;
+	line-height: 25px;
+	vertical-align: middle;
+}
+.footerMainTop li:hover a{
+	color: #FF6700;
+}
+.footerMainTopBox{
+	padding: 40px 0;
+	display: flex;
+	justify-content: space-between;
+}
+.TopSmallBox{
+	display: flex;
+}
+.TopSmallBox>ul{
+	width: 160px;
+}
+.TopSmallBox>ul>li:first-child{
+	margin-bottom: 26px;
+	font-size: 14px;
+	line-height: 1.25;
+	color: #424242;
+}
+.TopSmallBox>ul>li{
+	margin: 10px 0 0;
+	font-size: 12px;
+}
+.TopSmallBox>ul>li>a{
+	color: #757575;
+}
+
+.TopSmallBoxLeft{
+	width: 244px;
+	height: 112px;
+	border-left: 1px solid #e0e0e0;
+	text-align: center;
+	color: #616161;
+}
+.TopSmallBoxLeft>p:first-child{
+	margin: 0 0 5px;
+	font-size: 22px;
+	line-height: 1;
+	color: #ff6700;
+}
+.TopSmallBoxLeft>p:nth-child(2){
+	margin: 0 0 16px;
+	font-size: 12px;
+}
+.TopSmallBoxLeft>a{
+	display: inline-block;
+	border: 1px solid #ff6700;
+	background: #fff;
+	color: #ff6700;
+	width: 118px;
+	height: 28px;
+	font-size: 12px;
+	line-height: 28px;
+	transition: all .4s;
+}
+.TopSmallBoxLeft>a:hover{
+	background-color: #FF6700;
+	color: #fff;
+}
+.TopSmallBoxLeft i{
+	font-size: 12px;
+}
+
+.info{
+	padding: 30px 0;
+	font-size: 12px;
+	background: #fafafa;
+}
+.infoMain{
+	display: flex;
+}
+.logoICon>img{
+	width: 57px;
+	height: 57px;
+	margin: 0 10px 0 0;
+}
+.infoMainCont{
+	color: #b0b0b0;
+}
+.sis>a{
+	color: #757575;
+}
+.sis2 a{
+	color: #b0b0b0;
+}
+.sis2>p{
+	line-height: 18px;
+}
+.infoImgs{
+	display: flex;
+}
+.infoImgs img{
+	width: auto;
+	height: 28px;
+	margin-top: 4px;
+	margin-left: 0;
+	margin-bottom: 15px;
+}
+.slog{
+	margin: 30px auto 0;
+	width: 267px;
+	height: 19px;
+}
+.info a:hover{
+	color: #FF6700;
+}

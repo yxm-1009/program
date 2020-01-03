@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+// 函数
+// 宏：文本字符串替换
+$fontsize: 10px;
+@function pxsss($px) {
+	@return $px * $fontsize;
+}
+
+#nox{
+	width: pxsss(10);
+	height: pxsss(90);
+	background-color: #0077AA;
+}
+
+
+// if条件语句
+
+$type: moster;
+#nox1{
+	width: 100px;
+	height: 100px;
+	@if $type == ocean{
+		background-color: #0077AA;
+	} @else if $type == mad{
+		background-color: #008000;
+	} @else{
+		background-color: #424242;
+	}
+}
+// 循环语句
+// @for 变量名 from 几 to 几{};小于
+// @for 变量名 from 几 through 几{};小于等于
+
+// @for $i from 1 to 4{
+// 	.item-#{$i} {width: 2em * $i;}
+// }
+// while循环
+// $i: 2;
+// @while $i>0 {
+// 	.item-#{$i} {width: 2em * $i};
+// 	$i: $i - 1;
+// }
+
+// 混合(mixin)
+@mixin opa($opc:50) {//50是个默认值
+	opacity: $opc / 100;
+	filter: alpha(opacity=$opc);
+}
+#opa{
+	// opacity: $opc / 100;
+	// filter: alpha(opacity=$opc);
+	@include  opa;//无参使用默认值
+}
+#opa1{
+	// opacity: $opc / 100;
+	// filter: alpha(opacity=$opc);
+	@include  opa(80);//有参使用传的参数
+}

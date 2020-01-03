@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>小米账号 - 注册</title>
+		<link rel="shortcut icon" href="img/register/milogo.png" />
+		<link rel="stylesheet" href="css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="css/register.css"/>
+	</head>
+	<body>
+		<div class="layoutBox">
+			<div class="layoutBoxHeader">
+				<a href="index.html" class="logo"></a>
+				<span>注册小米帐号</span>
+				<div class="regMain">
+					<div class="reginBox Account">
+						<p>国家/地区</p>
+						<select>
+							<option value="">阿富汗</option>
+							<option value="">阿尔巴尼亚</option>
+							<option value="">阿尔及利亚</option>
+							<option value="">美属萨摩亚</option>
+							<option value="">安道尔</option>
+							<option value="">安哥拉</option>
+							<option value="">安圭拉</option>
+							<option value="">南极洲</option>
+						</select>
+						<span>成功注册帐号后，国家/地区将不能被修改</span>
+						<p>手机号码</p>
+						<div class="phone">
+							<select>
+								<option value="">+86</option>
+								<option value="">+86</option>
+								<option value="">+86</option>
+								<option value="">+86</option>
+								<option value="">+86</option>
+								<option value="">+86</option>
+								<option value="">+86</option>
+								<option value="">+86</option>
+							</select>
+							<input type="text" class="tel" value="15399445849">
+						</div>
+						<div class="alert"><i>!</i><span>请输入正确格式</span></div>
+						<button>立即注册</button>
+						<div class="layoutBoxfooter">
+							<p>已阅读并同意：小米 <a href="">用户协议</a> 和 <a href="">隐私政策</a> </p>
+						</div>
+					</div>
+					<div class="reginBox Pass">
+						<div class="pass">
+							<input type="password" name="" value="123456789" placeholder="请输入密码" />
+							<div class="alert"><i>!</i><span>请输入正确格式</span></div>
+							<button>注册</button>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<div class="footer">
+				<ul>
+					<li><a href="" class="jianti">简体</a><span>|</span></li>
+					<li><a href="">繁体</a><span>|</span></li>
+					<li><a href="">English</a><span>|</span></li>
+					<li><a href="">常见问题</a></li>
+				</ul>
+				<p>
+					<span>小米公司版权所有-京ICP备10046444-</span>
+					<img src="img/login/ghs.png" alt="">
+					<span>京公网安备11010802020134号-京ICP证110507号</span>
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="http://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+<script type="text/javascript">
+	$.fn.extend({
+		loca:function(tel,lin,next,pass,submit){
+			// ---------------------------------------------------------
+			let flag1;
+			tel.blur(function() {
+				flag1 = false;
+				// alert($(this).val());
+				let reg = /^(13|15|18|17)\d{9}$/;
+				if (!reg.test($(this).val()) || $(this).val() == '') {
+					lin.fadeIn();
+					flag1 = false;
+				} else {
+					lin.fadeOut();
+					// console.log($(this).val());
+					$.ajax({
+						//请求方式
+						type: "POST",
+						//请求地址
+						url: "js/tel.php",
+						//数据，json字符串
+						data: {
+							tel: $(this).val()
+						},
+						//请求成功
+						success: function(str) {
+							if (str == '1') {
+								alert('此账户已存在');
+								flag1 = false;
+							} else{
+								alert('请继续');
+								flag1 = true;
+							}
+						}
+					});
+				}
+			});
+			next.click(function() {
+				if (flag1) {
+					$(".Pass").show();
+				} else{
+					alert("请填写正确信息！");
+				}
+			});
+			// ---------------------------------------------------------
+			let flag2;
+			pass.blur(function() {
+				flag2 = false;
+				let reg = /^\d{6,16}$/;
+				if (!reg.test($(this).val()) || $(this).val() == '') {
+					lin.fadeIn();
+					flag2 = false;
+				} else {
+					lin.fadeOut();
+					flag2 = true;
+				}
+			});
+			submit.click(function() {
+				if (flag2) {
+					// alert('登录成功');
+					$.ajax({
+						//请求方式
+						type: "POST",
+						//请求地址
+						url: "js/register.php",
+						//数据，json字符串
+						data: {
+							tel: tel.val(),
+							pass: pass.val()
+						},
+						//请求成功
+						success: function(str) {
+							if (str == '0') {
+								alert('添加用户成功');
+								$(location).attr('href', 'login.html');
+							} else{
+								alert("添加用户失败");
+							}
+						}
+					});
+				} else{
+					alert('请填写信息');
+				}
+			});
+			
+		}
+	});
+	$(".regMain").loca($(".phone input"),$(".alert"),$(".Account>button"),$(".pass input"),$(".pass>button"));
+</script>

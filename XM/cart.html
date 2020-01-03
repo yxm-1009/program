@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>我的购物车-小米商城</title>
+		<link rel="shortcut icon" href="img/register/milogo.png" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/footer.css" />
+		<link rel="stylesheet" type="text/css" href="css/cart.css" />
+	</head>
+	<body>
+		<div class="header">
+			<div class="headerMain">
+				<div>
+					<div class="logoBox">
+						<a class="logo"></a>
+						<a class="home"></a>
+					</div>
+					<div class="tit">
+						<h2>我的购物车</h2>
+					</div>
+				</div>
+				<div class="right">
+					<div>123456789</div>
+					<div>我的订单</div>
+				</div>
+			</div>
+		</div>
+		<div class="page">
+			<div class="pageMain">
+				<div class="empty">
+					<div class="cart_empty">
+						<h2>您的购物车还是空的！</h2>
+						<a href="MoreGoodList.html">马上去购物</a>
+					</div>
+				</div>
+				
+				<div class="J_cartBox">
+					<ul class="lists list_head">
+						<li class='TitItem ChooseItem'><span class="choose"></span>全选</li>
+						<li class='TitItem imgItem'></li>
+						<li class='TitItem goodsItem'>商品名称</li>
+						<li class='TitItem priceItem'>单价</li>
+						<li class='TitItem numItem'>数量</li>
+						<li class='TitItem totleItem'>小计</li>
+						<li class='TitItem DelItem'>操作</li>
+					</ul>						
+					<div class="lists list_body">
+						<!-- <ul class="item_box">
+							<li class='TitItem ChooseItem'><span class="choose"></span></li>
+							<li class='TitItem imgItem'><a href="#"><img src="img/allListImg/pms_1513822496.31335198.jpg" alt=""></a></li>
+							<li class='TitItem goodsItem'><span class="tit"> 米家驱蚊器基础版 3个装 白色</span></li>
+							<li class='TitItem priceItem'><p><span class="price">88</span>元</p></li>
+							<li class='TitItem numItem'>
+								<div class="btnBox">
+									<button>-</button>
+									<span class="count">1</span>
+									<button>+</button>
+								</div>
+							</li>
+							<li class='TitItem totleItem'><p class="totle"><span class="balace">88</span>元</p></li>
+							<li class='TitItem DelItem'><span class="del">×</span><span class="ids" style="display:none">${localData[i].TtemId}</span></li>
+						</ul> -->
+					</div>
+					<div class="lists list_foot">
+						<div class="leftFoot">
+							<a href="LoadMoreGoodsDemo.html">继续购物</a>
+							<span>共 <i>2</i> 件商品，已选择 <i>2</i> 件</span>
+						</div>
+						<div class="leftFoot Footright">
+							<p>合计：<i>158</i>元 </p>
+							<button>去结算</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="FooterBOX"></div>
+	</body>
+</html>
+<script src="http://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+<script src="js/Public.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/cart.js"></script>
+<script type="text/javascript">
+	$('.header').logoAndso($('.logo'), $('.SearchBox'));
+	$('.FooterBOX').load('load/footer.html');
+	$(".pageMain").getlocal($('.empty'), $('.J_cartBox'), $('.list_body'), $('.leftFoot>span>i'),$('.Footright i'));
+	// 没有时的盒子  有商品时的盒子 放商品的盒子
+</script>
+	

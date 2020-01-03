@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+// 变量的定义方式：以$开始
+$a:200px;
+$h:22px;
+$color:#aaa;
+#box1{
+	background-color: $color;
+	height: $a;
+	width: $a;
+	font-size: $h;
+}
+
+
+// 特殊变量需要写在#{}内
+$mysize:size;
+#box2{
+	background-color: $color;
+	height: $a;
+	width: $a;
+	font-#{$mysize}: $h;
+}
+
+
+// 默认值变量
+$color:red;
+$color:pink !default;//默认值
+#box3{
+	background-color: $color;
+	height: $a;
+	width: $a;
+	font-size: $h;
+}
+
+
+// 计算功能
+#box4{
+	background-color: $color;
+	height: $a;
+	width: 2 * 30px;
+	font-size: $h;
+}
+
+
+// 嵌套
+#box5 {    
+    width: 100px;
+    height: 100px;
+    background: yellow;
+    color: #333;
+    a {
+       font-size:14px;
+       &:hover {
+          text-decoration:underline;
+       }
+    }
+} 

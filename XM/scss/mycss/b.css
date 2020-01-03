@@ -1,0 +1,19 @@
+#nox {
+  width: 100px;
+  height: 900px;
+  background-color: #0077AA; }
+
+#nox1 {
+  width: 100px;
+  height: 100px;
+  background-color: #424242; }
+ 
+#opa {
+  opacity: 0.5;
+  filter: alpha(opacity=50); }
+
+#opa1 {
+  opacity: 0.8;
+  filter: alpha(opacity=80); }
+
+/*# sourceMappingURL=b.css.map */

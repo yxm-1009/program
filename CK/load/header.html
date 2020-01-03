@@ -1,0 +1,350 @@
+<style>
+
+	.header {
+		width: 100%;
+		height: 55.17px;
+		margin: 0 auto;
+		margin: 0 0 50px;
+	}
+
+	.headerMain {
+		display: flex;
+		justify-content: space-between;
+		padding: 30px 30px 0;
+		font-size: 14px;
+	}
+
+	.headerMain>.main_item {
+		width: 33%;
+	}
+
+	.main_item>a>img {
+		width: 342px;
+		display: block;
+	}
+
+	.header_main_admin {
+		position: relative;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
+	input::-webkit-input-placeholder {
+		color: #d5d6de;
+		opacity: 1;
+	}
+	.header_main_admin>a {
+		display: block;
+	}
+
+	.header_main_admin i {
+		width: 1px;
+		height: 12px;
+		background-color: #000000;
+		margin: 0 20px;
+	}
+
+	#shop_num {
+		padding: 0 0 0 2px;
+		color: red;
+	}
+
+	.nav {
+		width: 100%;
+		height: 60px;
+	}
+
+	.nav>ul {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.nav>ul>li {
+		margin: 0 12px;
+		line-height: 60px;
+		padding: 0 14px;
+		text-align: center;
+		position: relative;
+	}
+
+	.nav>ul>li>a {
+		color: #333;
+	}
+
+	.nav>ul>li:after {
+		background-color: #000;
+		width: 0;
+		height: 1px;
+		content: "";
+		position: absolute;
+		top: 88%;
+		left: 50%;
+		transition: all .3s;
+
+	}
+
+	.nav>ul>li:hover:after {
+		width: 100%;
+		left: 0;
+	}
+
+	.sub_menu {
+		z-index: 2;
+		position: relative;
+	}
+
+	.menu_list {
+		width: 100%;
+		position: absolute;
+		top: 0;
+		background-color: #ccc;
+		display: none;
+	}
+
+	.list_main {
+		padding: 20px;
+		display: flex;
+		justify-content: space-around;
+	}
+
+	.list_main li {
+		line-height: 30px;
+	}
+	.inputss{
+		position: absolute;
+		top: 30px;
+		display: flex;
+		align-items: center;
+		border: 1px solid #d5d6de;
+		height: 28px;
+		width: 176px;
+		border-radius: 6px;
+		display: none;
+	}
+	.inputss>input{
+		display: block;
+		width: 120px;
+		border: 0;
+		margin-top: 8px;
+		margin-left: 20px;
+		font-size: 12px;
+		outline: none;
+	}
+	.inputss>img{
+		width: 14px;
+		height: 14px;
+		position: absolute;
+		right: 6px;
+		top: 7px;
+	}
+	.info{
+		width: 100%;
+		margin: 24px 0 8px;
+	}
+	.info>span{
+		width: 100%;
+		height: 19px;
+		color: #000000;
+		font-size: 14px;
+		display: block;
+		background-color: #F4F4F4;
+		padding: 6px 0;
+		text-align: center;
+	}
+</style>
+<div class="header">
+	<div class="headerMain">
+		<div class="main_item">
+			<a href="commodity.html">店铺搜索</a>
+		</div>
+		<div class="main_item">
+			<a href="#"><img src="img/logo.d8aeaa05.png"></a>
+		</div>
+		<div class="main_item header_main_admin">
+			<a href="#">登录</a><i></i>
+			<a href="#">注册</a><i></i>
+			<a href="shop.html">购物车<span id="shop_num">0</span></a><i></i>
+			<a href="#" id="ss">搜索</a>
+			<div class="inputss">
+				<input type="text" placeholder="请输入商品名或者款号" />
+				<img src="img/ss.jpg" alt="">
+				<ul id="list"></ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="nav">
+	<ul>
+		<li class='nav_item'><a href="#">新品</a></li>
+		<li class='nav_item'><a href="#">鞋履</a></li>
+		<li class='nav_item'><a href="#">包袋</a></li>
+		<li class='nav_item'><a href="#">配饰</a></li>
+		<li class='nav_item'><a href="#">造型课堂</a></li>
+	</ul>
+	<div class="sub_menu">
+		<div class="menu_list">
+			<div class="list_main">
+				<ul>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="menu_list">
+			<div class="list_main">
+				<ul>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="menu_list">
+			<div class="list_main">
+				<ul>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="menu_list">
+			<div class="list_main">
+				<ul>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="menu_list">
+			<div class="list_main">
+				<ul>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+					<li><a href="#">123456</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="info">
+	<span>提供免费配送服务，新疆西藏地区除外</span>
+</div>
