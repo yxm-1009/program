@@ -1,0 +1,126 @@
+#body_top_btn{
+	width: 55px;
+	height: 55px;
+	background-color: #000000;
+	background-image: url(../img/top.png);
+	border-radius: 50%;
+	position: fixed;
+	right: 0;
+	bottom: 10px;
+	z-index: 10;
+}
+.section{
+	width: 720px;
+	margin: 30px auto 70px;
+}
+.sectionmain{
+	width: 712px;
+	margin: 0 auto;
+	border: 1px solid #D4D4D4;
+}
+.section_main{
+	padding: 30px;
+	font-size: 14px;
+	position: relative;
+}
+.section_main h1{
+	font-size: 22px;
+	color: #636363;
+	margin: 0 0 15px;
+	padding: 0 0 3px;
+}
+.section_main p{
+	color: #A0A0A0;
+}
+.section_main span{
+	display: block;
+	width: 95px;
+}
+.main_item>span{
+	color: #A0A0A0;
+	line-height: 32px;
+}
+.section_main input{
+	display: block;
+	width: 170px;
+	height: 28px;
+	border: 0;
+	background-color: #EBEBEB;
+	border-radius: 4px;
+	text-indent: 10px;
+}
+.required{
+	margin: 10px 0;
+}
+.main_list{
+	display: flex;
+	flex-wrap: wrap;
+}
+.main_item{
+	width: 48%;
+	height: 32px;
+	display: flex;
+	margin: 0 0 18px;
+	position: relative;
+}
+.main_item .code{
+	display: block;
+	width: 100px;
+}
+.node{
+	width: 100px;
+	height: 30px;
+	margin-left: 10px;
+	background-color: #000000;
+}
+.note{
+	width: 100%;
+}
+.main_item .send{
+	width: 45px;
+	height: 30px;
+	border-radius: 20px;
+	text-align: center;
+	font-size: 12px;
+	color: white;
+}
+.item_select{
+	border: 0;
+	background-color: #EBEBEB;
+	width: 170px;
+	display: block;
+	text-indent: 10px;
+}
+option{
+	background-color: #FFFFFF;
+}
+.main_item .not_send{
+	width: 154px;
+}
+.submit>input{
+	width: 54px;
+	height: 28px;
+	position: absolute;
+	border-radius: 30px;
+	background-color: #000000;
+	color: white;
+	font-size: 12px;
+	text-indent: 0;
+	bottom: 6px;
+	right: 40px;
+}
+.be::before{
+	content: '';
+	width: 10px;
+	height: 10px;
+	border: 1px solid #D4D4D4;
+	border-radius: 2px;
+	display: inline-block;
+}
+.clause a{
+	text-decoration: underline;
+	color: #636363;
+}
+.sCode{
+	background-color: #CBCBCB;
+	}

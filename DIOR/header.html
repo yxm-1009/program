@@ -1,0 +1,726 @@
+<style>
+	ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,hr,td,input,textarea{
+		margin: 0;
+		padding: 0;
+	}
+	
+	ul,ol {
+		list-style: none;
+	}
+	
+	a {
+		text-decoration: none;
+		color: #000000;
+	}
+	
+	img {
+		border: 0;
+	}
+	
+	html {
+		width: 100%;
+	}
+	
+	body {
+		width: 100%;
+		font-family: "微软雅黑";
+	}
+	/* header */
+	.header {
+		width: 100%;
+		height: 80px;
+	}
+	
+	.headerMain {
+		width: 100%;
+		height: 100%;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+	}
+	
+	/* headerLeft */
+	.headerLeft {
+		width: 45%;
+		height: 100%;
+		padding-left: 54px;
+		display: flex;
+		align-items: center;
+	}
+	
+	.headerLeftMain {
+		width: 300px;
+		height: 42px;
+		border-radius: 3.75rem;
+		display: flex;
+		border: 1px solid #757575;
+	
+	}
+	
+	.headerLeftMain_ss {
+		border: 0;
+		width: 80%;
+		height: 100%;
+		outline: none;
+		border-radius: 3.75rem 0 0 3.75rem;
+		padding-left: 25px;
+		box-sizing: content-box;
+	}
+	
+	.headerLeftMain_btn {
+		border: 0;
+		width: 20%;
+		height: 100%;
+		outline: none;
+		/* 清除选中时候的外边框 */
+		background: transparent;
+		/* url(../img/a_1.png) no-repeat 20px 12px */
+		border-radius: 0 3.75rem 3.75rem 0;
+	}
+	
+	.headerMiddle {
+		flex: 1;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+	}
+	
+	.headerRight {
+		width: 45%;
+		height: 100%;
+		display: flex;
+		justify-content: flex-end;
+	}
+	
+	.headerRightMain {
+		width: 30%;
+		display: flex;
+		margin-right: 10px;
+		align-items: center;
+	}
+	
+	.headerRightMain>a {
+		flex: 1;
+	}
+	
+	/* 遮罩层 */
+	.boxShadw {
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, .3);
+		position: absolute;
+		top: 0;
+		display: none;
+		z-index: 3;
+	}
+	
+	.boxShMain {
+		width: 550px;
+		height: 100%;
+		background-color: white;
+		position: absolute;
+		right: 0;
+	}
+	
+	.ShMainTop {
+		width: 100%;
+		height: 79px;
+		border-bottom: 1px solid #e5e5e5;
+		position: relative;
+	}
+	
+	.ShMainTop img {
+		position: absolute;
+		right: 20px;
+		top: 30px;
+	}
+	
+	.ShMainCenter{
+		height: 45px;
+		border-bottom: 1px solid #e5e5e5;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		
+	}
+	.ShMainCenter>a{
+		font-size: 14px;
+	}
+	.ShMainBottom{
+		width: 100%;
+		height: 100%;
+		position: relative;
+	}
+	.admin{
+		width: 100%;
+		position: absolute;
+		padding: 50px 0 0 0;
+		top: 0;
+		text-align: center;
+	}
+	.admin .admin_Login{
+		padding: 0 0 50px;
+	}
+	.admin p{
+		font-size: 26px;
+		margin: 0 0 10px;
+	}
+	.admin span{
+		font-size: 15px;
+		margin: 0 0 15px;
+		display: block;
+	}
+	.admin a{
+		display: inline-block;
+		line-height: 44px;
+		background-color: #000000;
+		color: white;
+		font-size: 14px;
+		padding: 0 32px;
+		border-radius: 40px;
+		margin: 0 auto;
+	}
+	.admin_Register{
+		width: 100%;
+		height: 290px;
+		background-color: #F6F6F6;
+	}
+	.admin_Register p{
+		padding: 50px 0 0;
+	}
+	.admin_Register a{
+		background-color: white;
+		color: #000000;
+		border: 0.0625rem solid #000000;
+	}
+	.admin a:hover{
+		font-weight: 900;
+	}
+	.admin_Shop{
+		background-color: white;
+	}
+	/* nav */
+	.nav {
+		width: 100%;
+		height: 45px;
+		border-bottom: 1px solid #e5e5e5;
+	}
+	
+	.navList {
+		width: 688px;
+		height: 45px;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		line-height: 45px;
+		font-size: .8125rem;
+		text-align: center;
+	}
+	
+	.navList>li {
+		height: 50px;
+		position: relative;
+	}
+	
+	.navList .navListMain {
+		color: #000;
+		padding: 0 7px;
+	}
+	
+	.navList .navListMain:after {
+		content: "";
+		width: 0;
+		height: 2px;
+		background-color: black;
+		position: absolute;
+		top: 88%;
+		left: 50%;
+		transition: all .3s;
+	}
+	
+	.navList .navListMain:hover:after {
+		left: 0%;
+		width: 100%;
+	}
+	
+	.navList .navListMain:hover span {
+		font-weight: 900;
+	}
+	
+	/* 二级菜单 */
+	.Show {
+		width: 100%;
+		display: none;
+		position: absolute;
+		left: 0px;
+		z-index: 6;
+	}
+	
+	.Choose_Show_Main {
+		width: 1350px;
+		margin: 0 auto;
+		display: flex;
+		padding: 35px 0 43px;
+		background-color: #fff;
+		justify-content: space-around;
+		position: absolute;
+		top: 1px;
+	}
+	
+	.By_Choose_Item {
+		display: flex;
+	}
+	
+	.BC_Item_Text_one {
+		width: 40%;
+		padding: 0 0 0 178px;
+	}
+	
+	.BC_Item_Text_two {
+		width: 60%;
+		padding: 0 0 0 120px;
+	}
+	
+	.By_Choose_Item>a>img {
+		width: 226px;
+		margin-right: 40px;
+	}
+	
+	.BC_Item_Text>a {
+		display: block;
+		padding-top: 6px;
+		padding-bottom: 12px;
+		color: #000000;
+		font-size: 12px;
+		line-height: 12px;
+	}
+	
+	.BC_Item_Text>a:hover {
+		font-weight: 700;
+	}
+	.Chooose_woman{
+		z-index: 3;
+		display: flex;
+		justify-content: space-around;
+	}
+	.Choose_Woman_list{
+		width: 10%;
+		display: flex;
+		flex-direction: column;
+	}
+	.Chooose_woman a:hover{
+		font-weight: 900;
+	}
+	
+	
+	.Choose_Woman_list a{
+		display: block;
+		font-size: 12px;
+	}
+	.Chooose_woman .Choose_Woman_list img{
+		display: block;
+		width: 100%;
+		height: 77px;
+		margin: 10px 0 20px;
+	}
+	.Chooose_woman .Choose_Woman_list span{
+		height: 1px;
+		width: 60px;
+		background-color: #e5e5e5;
+		display: block;
+		margin: 16px 0;
+	}
+	.Chooose_woman .Choose_Woman_list li{
+		margin: 10px 0;
+	}
+	.woman_tit{
+		display: block;
+		margin: 10px 0 34px;
+	}
+	.Top_Tit{
+		margin: 0 0 5px;
+	}
+	.Nav_Show{
+		width: 100%;
+		height: 6000px;
+		position: absolute;
+		opacity: .3;
+		background-color: #000;
+		z-index: 4;
+		display: none;
+	}
+</style>
+<!-- 遮罩层 -->
+<div class="boxShadw" id="boxShadw">
+	<div class="boxShMain">
+		<div class="ShMainTop">
+			<a href="#" id="ShMainTop_Colse"><img src="img/a_5.png" alt=""></a>
+		</div>
+		<div class="ShMainCenter">
+			<a href="#" class='SHMainCenterTit'>我的收藏</a>
+			<a href="#" class='SHMainCenterTit'>我的账户</a>
+			<a href="#" class='SHMainCenterTit'>购物袋</a>
+		</div>
+		<div class="ShMainBottom">
+			<div class="admin admin_con">
+				<span>我的最爱没有任何作品</span>
+			</div>
+			<div class="admin admin_Log_Reg">
+				<div class="admin_Login">
+					<p>登录</p>
+					<span>登录我的账号</span>
+					<a href="Login.html">登录</a>
+				</div>
+				<div class="admin_Register">
+					<p>没有账号吗？</p>
+					<a href="Register.html">建立账户</a>
+				</div>
+			</div>
+			<div class="admin admin_shopping">
+				<div class="admin_Register admin_Shop">
+					<span>去购物车看看吧！</span>
+					<a class="gogogo">购物车</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<!-- header -->
+<div class="header">
+	<div class="headerMain">
+		<!-- headerLeft -->
+		<div class="headerLeft">
+			<div class="headerLeftMain" id="head_Left_Main">
+				<input class="headerLeftMain_ss" id="Left_Main_ss" type="text" placeholder="在dior.cn上搜索">
+				<button type="button" class="headerLeftMain_btn" id="Left_Main_btn"><img src="img/a_1.png"></button>
+			</div>
+		</div>
+		<!-- headerMiddle -->
+		<div class="headerMiddle">
+			<img src="img/a_logo.jpg">
+		</div>
+		<!-- headerRight -->
+		<div class="headerRight">
+			<div class="headerRightMain">
+				<a href="#" class='hTopImg'><img src="img/a_2.png" alt=""></a>
+				<a href="#" class='hTopImg'><img src="img/a_3.png" alt=""></a>
+				<a href="#" class='hTopImg'><img src="img/a_4.png" alt=""></a>
+			</div>
+		</div>
+
+	</div>
+</div>
+<!-- nav -->
+<div class="nav">
+	<ul class="navList">
+		<li class='list'><a href="#" class='navListMain'><span>臻选之礼</span></a></li>
+		<li class='list'><a href="#" class='navListMain'><span>女士精品</span></a></li>
+		<li class='list'><a href="#" class='navListMain'><span>男士精品</span></a></li>
+		<li class='list'><a href="#" class='navListMain'><span>香氛</span></a></li>
+		<li class='list'><a href="#" class='navListMain'><span>彩妆</span></a></li>
+		<li class='list'><a href="#" class='navListMain'><span>护肤</span></a></li>
+		<li class='list'><a href="#" class='navListMain'><span>童装精品</span></a></li>
+		<li class='list'><a href="#" class='navListMain'><span>邂逅迪奥 & 精湛工艺</span></a></li>
+
+	</ul>
+	<!-- 二级菜单 -->
+	<div class="Nav_Show">
+
+	</div>
+	<div class="Show">
+		<div class="Choose_Show_Main">
+			<div class="By_Choose_Item BC_Item_Text_one">
+				<a href="#"><img src="img/nav_By_1.jpg" alt=""></a>
+				<div class="BC_Item_Text ">
+					<a href="#">时装 & 配饰</a>
+					<a href="#">女士圣诞赠礼</a>
+					<a href="#">男士圣诞增礼</a>
+					<a href="#">初生婴儿礼品</a>
+				</div>
+			</div>
+			<div class="By_Choose_Item BC_Item_Text_two">
+				<a href="#"><img src="img/nav_By_2.jpg" alt=""></a>
+				<div class="BC_Item_Text">
+					<a href="#">香氛与美妆</a>
+					<a href="#">圣诞梦幻珍礼</a>
+					<a href="#">迪奥刻字工作室</a>
+					<a href="#">精美礼品</a>
+				</div>
+			</div>
+		</div>
+		<div class="Choose_Show_Main  Chooose_woman">
+			<div class="Choose_Woman_list">
+				<a href="#">圣诞臻礼</a>
+				<a href="#"><img src="img/W1.jpg" alt=""></a>
+				<a href="#" class="woman_tit">为她精选</a>
+
+				<a href="#">最新动态</a>
+				<a href="#"><img src="img/W2.jpg" alt=""></a>
+
+				<ul>
+					<li><a href="#">Cruise 2020 系列</a></li>
+					<li><a href="#">2020 Dioriviera Cruise 系列</a></li>
+				</ul>
+				<span></span>
+				<ul>
+					<li><a href="#">迷你BOOK TOTE手袋</a></li>
+					<li><a href="#">Dior Oblique</a></li>
+					<li><a href="#">DiorLady Art #4</a></li>
+					<li><a href="#">2020春夏成衣系列上海发布秀</a></li>
+					<li><a href="#">Rose Celeste</a></li>
+					<li><a href="#">30Montaigne系列</a></li>
+				</ul>
+			</div>
+			<div class="Choose_Woman_list">
+				<a href="#" class="Top_Tit">皮具系列</a>
+				<ul>
+					<li><a href="#">手袋</a></li>
+					<li><a href="#">托特包</a></li>
+					<li><a href="#">迷你手袋&腰包</a></li>
+					<li><a href="#">信使包&双肩背包</a></li>
+				</ul>
+				<span></span>
+				<ul>
+					<li><a href="#">30Montaigne</a></li>
+					<li><a href="#">Lady Dior</a></li>
+					<li><a href="#">Saddle</a></li>
+					<li><a href="#">Dior Book Tote</a></li>
+					<li><a href="#">Diorama</a></li>
+				</ul>
+			</div>
+			<div class="Choose_Woman_list">
+				<a href="#" class="Top_Tit">高级成衣</a>
+				<ul>
+					<li><a href="#">外套</a></li>
+					<li><a href="#">连衣裙</a></li>
+					<li><a href="#">半身裙</a></li>
+					<li><a href="#">衬衫</a></li>
+					<li><a href="#">长裤&短裤</a></li>
+					<li><a href="#">针织衫</a></li>
+					<li><a href="#">T恤</a></li>
+					<li><a href="#">牛仔系列</a></li>
+				</ul>
+				<span></span>
+				<ul>
+					<li><a href="#">30Montaigne系列</a></li>
+				</ul>
+			</div>
+			<div class="Choose_Woman_list">
+				<!-- li*3>a[href=#] -->
+				<a href="#" class="Top_Tit">鞋履系列</a>
+				<ul>
+					<li><a href="#">高跟鞋.</a></li>
+					<li><a href="#">平底鞋</a></li>
+					<li><a href="#">长靴&短靴</a></li>
+					<li><a href="#">凉鞋</a></li>
+					<li><a href="#">运动鞋</a></li>
+
+				</ul>
+				<span></span>
+				<ul>
+					<li><a href="#">J'Adior</a></li>
+					<li><a href="#">TD-Connect</a></li>
+					<li><a href="#">Walk'n'Dior</a></li>
+					<li><a href="#">Dway</a></li>
+				</ul>
+			</div>
+			<div class="Choose_Woman_list">
+				<a href="#" class="Top_Tit">时尚首饰</a>
+				<ul>
+					<li><a href="#">耳环</a></li>
+					<li><a href="#">项链</a></li>
+					<li><a href="#">手链/手镯</a></li>
+					<li><a href="#">戒指</a></li>
+					<li><a href="#">胸针&配饰</a></li>
+
+				</ul>
+				<span></span>
+				<ul>
+					<li><a href="#">Dior Tribales</a></li>
+					<li><a href="#">J'Adior</a></li>
+					<li><a href="#">My ABCDior</a></li>
+				</ul>
+			</div>
+			<div class="Choose_Woman_list">
+				<a href="#" class="Top_Tit">配饰系列.</a>
+				<ul>
+					<li><a href="#">手拿包</a></li>
+					<li><a href="#">钱夹&小型配饰</a></li>
+					<li><a href="#">肩芾</a></li>
+					<li><a href="#">腰带</a></li>
+					<li><a href="#">围巾式外套</a></li>
+					<li><a href="#">丝巾& Mitzah丝巾</a></li>
+					<li><a href="#">围巾&披肩</a></li>
+					<li><a href="#">帽子&手套</a></li>
+					<li><a href="#">太阳眼镜</a></li>
+				</ul>
+				<span></span>
+				<!-- li*3>a[href=#] -->
+				<ul>
+					<li><a href="#">My ABCDior</a></li>
+				</ul>
+			</div>
+			<div class="Choose_Woman_list">
+				<a href="#" class="Top_Tit">高级珠宝</a>
+				<ul>
+					<li><a href="#">戒指</a></li>
+					<li><a href="#">耳环</a></li>
+					<li><a href="#">项链</a></li>
+					<li><a href="#">手链/手镯</a></li>
+					<li><a href="#">订婚及结婚戒指</a></li>
+				</ul>
+				<span></span>
+				<ul>
+					<li><a href="#">Rose des vents</a></li>
+					<li><a href="#">Mimirose</a></li>
+					<li><a href="#">迪奥玫瑰</a></li>
+					<li><a href="#">Oui</a></li>
+					<li><a href="#">Tete de Mort</a></li>
+				</ul>
+				<span></span>
+				<ul>
+					<li><a href="#">高级腕表</a></li>
+					<li><a href="#">La Dde Dior</a></li>
+					<li><a href="#">Dior Grand Bal</a></li>
+					<li><a href="#">Dior VlII</a></li>
+				</ul>
+			</div>
+			<div class="Choose_Woman_list">
+				<a href="#" class="Top_Tit">成衣系列时装秀</a>
+				<ul>
+					<li><a href="#">2020春夏季</a></li>
+					<li><a href="#">2020度假</a></li>
+					<li><a href="#">2019-2020秋冬</a></li>
+				</ul>
+				<span></span>
+				<ul>
+					<li><a href="#">高级订制时装秀</a></li>
+					<li><a href="#">2019-2020秋冬季</a></li>
+					<li><a href="#">2019春夏</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="Choose_Show_Main">
+			<div class="By_Choose_Item BC_Item_Text_one">
+				<a href="#"><img src="img/nav_By_1.jpg" alt=""></a>
+				<div class="BC_Item_Text ">
+					<a href="#">时装 & 配饰</a>
+					<a href="#">女士圣诞赠礼</a>
+					<a href="#">男士圣诞增礼</a>
+					<a href="#">初生婴儿礼品</a>
+				</div>
+			</div>
+			<div class="By_Choose_Item BC_Item_Text_two">
+				<a href="#"><img src="img/nav_By_2.jpg" alt=""></a>
+				<div class="BC_Item_Text">
+					<a href="#">香氛与美妆</a>
+					<a href="#">圣诞梦幻珍礼</a>
+					<a href="#">迪奥刻字工作室</a>
+					<a href="#">精美礼品</a>
+				</div>
+			</div>
+		</div>
+		<div class="Choose_Show_Main">
+			<div class="By_Choose_Item BC_Item_Text_one">
+				<a href="#"><img src="img/nav_By_1.jpg" alt=""></a>
+				<div class="BC_Item_Text ">
+					<a href="#">时装 & 配饰4</a>
+					<a href="#">女士圣诞赠礼</a>
+					<a href="#">男士圣诞增礼</a>
+					<a href="#">初生婴儿礼品</a>
+				</div>
+			</div>
+			<div class="By_Choose_Item BC_Item_Text_two">
+				<a href="#"><img src="img/nav_By_2.jpg" alt=""></a>
+				<div class="BC_Item_Text">
+					<a href="#">香氛与美妆</a>
+					<a href="#">圣诞梦幻珍礼</a>
+					<a href="#">迪奥刻字工作室</a>
+					<a href="#">精美礼品</a>
+				</div>
+			</div>
+		</div>
+		<div class="Choose_Show_Main">
+			<div class="By_Choose_Item BC_Item_Text_one">
+				<a href="#"><img src="img/nav_By_1.jpg" alt=""></a>
+				<div class="BC_Item_Text ">
+					<a href="#">时装 & 配饰5</a>
+					<a href="#">女士圣诞赠礼</a>
+					<a href="#">男士圣诞增礼</a>
+					<a href="#">初生婴儿礼品</a>
+				</div>
+			</div>
+			<div class="By_Choose_Item BC_Item_Text_two">
+				<a href="#"><img src="img/nav_By_2.jpg" alt=""></a>
+				<div class="BC_Item_Text">
+					<a href="#">香氛与美妆</a>
+					<a href="#">圣诞梦幻珍礼</a>
+					<a href="#">迪奥刻字工作室</a>
+					<a href="#">精美礼品</a>
+				</div>
+			</div>
+		</div>
+		<div class="Choose_Show_Main">
+			<div class="By_Choose_Item BC_Item_Text_one">
+				<a href="#"><img src="img/nav_By_1.jpg" alt=""></a>
+				<div class="BC_Item_Text ">
+					<a href="#">时装 & 配饰6</a>
+					<a href="#">女士圣诞赠礼</a>
+					<a href="#">男士圣诞增礼</a>
+					<a href="#">初生婴儿礼品</a>
+				</div>
+			</div>
+			<div class="By_Choose_Item BC_Item_Text_two">
+				<a href="#"><img src="img/nav_By_2.jpg" alt=""></a>
+				<div class="BC_Item_Text">
+					<a href="#">香氛与美妆</a>
+					<a href="#">圣诞梦幻珍礼</a>
+					<a href="#">迪奥刻字工作室</a>
+					<a href="#">精美礼品</a>
+				</div>
+			</div>
+		</div>
+		<div class="Choose_Show_Main">
+			<div class="By_Choose_Item BC_Item_Text_one">
+				<a href="#"><img src="img/nav_By_1.jpg" alt=""></a>
+				<div class="BC_Item_Text ">
+					<a href="#">时装 & 配饰7</a>
+					<a href="#">女士圣诞赠礼</a>
+					<a href="#">男士圣诞增礼</a>
+					<a href="#">初生婴儿礼品</a>
+				</div>
+			</div>
+			<div class="By_Choose_Item BC_Item_Text_two">
+				<a href="#"><img src="img/nav_By_2.jpg" alt=""></a>
+				<div class="BC_Item_Text">
+					<a href="#">香氛与美妆</a>
+					<a href="#">圣诞梦幻珍礼</a>
+					<a href="#">迪奥刻字工作室</a>
+					<a href="#">精美礼品</a>
+				</div>
+			</div>
+		</div>
+		<div class="Choose_Show_Main">
+			<div class="By_Choose_Item BC_Item_Text_one">
+				<a href="#"><img src="img/nav_By_1.jpg" alt=""></a>
+				<div class="BC_Item_Text ">
+					<a href="#">时装 & 配饰8</a>
+					<a href="#">女士圣诞赠礼</a>
+					<a href="#">男士圣诞增礼</a>
+					<a href="#">初生婴儿礼品</a>
+				</div>
+			</div>
+			<div class="By_Choose_Item BC_Item_Text_two">
+				<a href="#"><img src="img/nav_By_2.jpg" alt=""></a>
+				<div class="BC_Item_Text">
+					<a href="#">香氛与美妆</a>
+					<a href="#">圣诞梦幻珍礼</a>
+					<a href="#">迪奥刻字工作室</a>
+					<a href="#">精美礼品</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

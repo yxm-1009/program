@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>客户登录</title>
+		<link rel="shortcut icon" href="img/icon.jpg" />
+		<link rel="stylesheet" type="text/css" href="css/Login.css"/>
+	</head>
+	<body>
+		<!-- 回到顶部 -->
+		<div id="body_top_btn"></div>
+		<div class="HEADER_LODE">
+			
+		</div>
+		<div class="section">
+			<div class="sectionmain">
+				<div class="section_tit">
+					<p>登录或创建帐户</p>
+				</div>
+				<div class="section_main">
+					<div class="section_main_left">
+						<div class="section_main_left_tit">
+							<span>短信验证码登录</span>
+							<a href="#">密码登录</a>
+						</div>
+						<div class="section_main_left_input">
+							<div class="list_input phone">
+								<input type="text" value="13567679898" placeholder="*手机号" required="required" class="tel"/>
+								<span style="position: absolute;left: 2px; top: 29px; color: red; font-size: 12px; display: none;" class="shouji">填写错误</span>
+								<span style="position: absolute;left: 30px; top: 29px; color: #757575; font-size: 12px; display: none;" class="gou">信息正确</span>
+							</div>
+							<div class="list_input code">
+								<input type="text" name="" placeholder="*验证码" required="required" class="sc"/>
+								<span class="random sCode"></span>
+								<span style="position: absolute; height:20px ;left:2px; top: 29px; color: red; font-size: 12px; background-color: transparent; display: none;" class="yanzheng">填写错误</span>
+							</div>
+							<div class="list_input code node">
+								<input type="text"name="" placeholder="*短信验证码" required="required">
+								<span>发送</span>
+							</div>
+							<p>*未注册Dior官网账号的手机号，在使用验证码登录时将自动注册。</p>
+							<div class="list_input clause">
+								<span></span>
+								<p> 我已阅读并接受<a href="#">个人信息收集声明以及网站使用和销售条款</a></p>
+							</div>
+							<div class="list_input login">
+								<input type="submit" name="" id="" value="登录" class="section_main" />
+							</div>
+							
+							<div class="list_input account">
+								<p>使用第三方账号登录</p>
+								<div class="img_input">
+									<a href="#"><img src="img/wechat.png" ></a>
+									<a href="#"><img src="img/alipay.png" ></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<span class="slide_main"></span>
+					<div class="section_main_right">
+						<p class="sect_main_tit">注册Dior账户</p>
+						<p class="sect_main_text">注册Dior账号以便追踪您的订单，<br>管理收货地址，获取更多个性化信息</p>
+						<a href="Register.html"><span>创建用户</span></a>
+					</div>
+				</div>
+				<div class="section_footer">
+					<p>*请妥善保管您的注册账户信息，勿将账号及密码随意泄露给他人。<br>请注意，您的账户注册手机号为迪奥识别及验证您账户身份的唯一依据。</p>
+				</div>
+			</div>
+		</div>
+		<div class="FOOTER_LOAD">
+			
+		</div>
+	</body>
+</html>
+<script src="js/jQuery.js"></script>
+<script src="js/login.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.HEADER_LODE').load('login_header.html');
+		$('.FOOTER_LOAD').load('login_footer.html');
+		$(function(){
+			let height = 200;//距顶部距离
+			let top = $('#body_top_btn');
+			$('body').top(top,height);
+		});
+		let flag3;
+		$('.tel').blur(function() {
+			flag3 = false;
+			let reg = /^(13|15|18|17)\d{9}$/;
+			if (!reg.test($(this).val()) || $(this).val() == '') {
+				$('.shouji').show();
+				flag3 = false;
+			} else {
+				$('.shouji').hide();
+				$.ajax({
+					//请求方式
+					type: "POST",
+					//请求地址
+					url: "Login.php",
+					//数据，json字符串
+					data: {
+						tel: $('.tel').val()
+					},
+					//请求成功
+					success: function(str) {
+						if (str == '1') {
+							$('.gou').show();
+						} else {
+							alert('此账户不存在');
+						}
+					}
+				});
+				flag3 = true;
+			}
+		});
+		// ---------------------------------------验证码-------------
+		
+		let redo = '1234567890qwertyuiopasdfghjklzxcvbnmZXCVBNMASDFGHJKLQWERTYUIOP';
+		let zero_num_index = '';
+		let flag4;
+		$('.sCode').click(function() {
+			flag4 = false;
+			zero_num_index = '';
+			for (let i = 0; i < 4; i++) {
+				zero_num_index += redo[parseInt(Math.random() * redo.length - 1)];
+			}
+			$('.sCode').html(zero_num_index);
+		});
+		$('.sc').blur(function() {
+			if ($(this).val() != $('.sCode').html()) {
+				$('.yanzheng').show();
+				flag4 = false;
+			} else if ($(this).val() == '') {
+				$('.yanzheng').show();
+				flag4 = false;
+			} else {
+				$('.yanzheng').hide();
+				flag4 = true;
+			}
+		});
+		// ---------------------------------------短信验证码-------------
+		let flag5;
+		$('.newsc').blur(function() {
+			flag5 = false;
+			let reg = /^\d{4,9}$/;
+			if (!reg.test($(this).val()) || $(this).val() == '') {
+				$('.duanxin').show();
+				flag5 = false;
+			} else {
+				$('.duanxin').hide();
+				flag5 = true;
+			}
+		});
+		// ----------------------
+		$('.section_main').click(function() {
+			let surname_ = $('.surname').val();
+			let name_ = $('.name').val();
+			let tel_ = $('.tel').val();
+			let pass_ = $('.pass').val();
+			let type_ = "res";
+			if (flag3 && flag4 && flag5) {
+				alert('登录成功');
+				// location.href("Index.html");
+				 $(location).attr('href', 'Index.html');
+				return true;
+			// 	return false;
+			}
+		});
+	})
+</script>

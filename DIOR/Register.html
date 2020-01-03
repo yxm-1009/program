@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>创建新客户账户</title>
+		<link rel="shortcut icon" href="img/icon.jpg" />
+		<link rel="stylesheet" href="css/register.css">
+	</head>
+	<body>
+		<div id="body_top_btn"></div>
+		<div class="HEADER_LODE"></div>
+		<div class="section">
+			<div class="sectionmain">
+				<div class="section_main">
+					<h1>注册</h1>
+					<p>如您已是Dior美妆店铺会员，请使用会员手机号码注册，系统将自动绑定您的官网帐号并合并您在官网和店铺的Dior美妆购物积分。</p>
+					<p class="required">*为必填项目。</p>
+					<div class="main_list">
+						<div class="main_item">
+							<span>姓*</span>
+							<input class="surname" type="text" placeholder="姓" value="想" />
+							<span style="position: absolute;left: 96px; top: 20px; color: red; fontSize: 12px; display: none;" class="xing">必填信息</span>
+						</div>
+						<div class="main_item">
+							<span>名*</span>
+							<input class="name" type="text" placeholder="名" value="想" />
+							<span style="position: absolute;left: 96px; top: 20px; color: red; fontSize: 12px; display: none;" class="ming">必填信息</span>
+						</div>
+						<div class="main_item">
+							<span>电话*</span>
+							<input class="tel" placeholder="电话" value="13567679898" />
+							<span style="position: absolute;left: 96px; top: 20px; color: red; fontSize: 12px; display: none;" class="shouji">必填信息</span>
+						</div>
+						<div class="main_item">
+							<span>称谓*</span>
+							<select class="item_select">
+								<option value="">选择称谓</option>
+								<option value="">女士</option>
+								<option value="">先生</option>
+								<option value="">小姐</option>
+							</select>
+						</div>
+						<div class="main_item note">
+							<span>验证码*</span>
+							<input type="text" placeholder="*验证码" class="code sc" />
+							<span class="node sCode"></span>
+							<span style="position: absolute;left: 96px; top: 20px; color: red; fontSize: 12px; display: none;" class="yanzheng">必填信息</span>
+						</div>
+						<div class="main_item note not_send">
+							<span>短信验证码*</span>
+							<input type="text" placeholder="*短信验证码" required="required" class="code not_send newsc" value="123457123">
+							<span class="node send">发送</span>
+							<span style="position: absolute;left: 96px; top: 20px; color: red; fontSize: 12px; display: none;" class="duanxin">必填信息</span>
+						</div>
+						<div class="main_item">
+							<span>密码*</span>
+							<input type="password" placeholder="*密码" value="12345678456" required class="pass" />
+							<span style="position: absolute;left: 96px; top: 20px; color: red; fontSize: 12px; display: none;" class="mima">必填信息</span>
+						</div>
+					</div>
+					<div class="clause">
+						<p class="be"> 我已阅读并接受<a href="#">个人信息收集声明以及网站使用和销售条款</a></p>
+					</div>
+					<div class="submit">
+						<input type="button" value="注册" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="FOOTER_LOAD"></div>
+	</body>
+</html>
+<script src="js/jQuery.js"></script>
+<script src="js/register.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('.HEADER_LODE').load('login_header.html');
+		$('.FOOTER_LOAD').load('login_footer.html');
+		$(function() {
+			let height = 200; //距顶部距离
+			let top = $('#body_top_btn');
+			$('body').top(top, height);
+		});
+		// ---------------------------------------姓 ，名-------------
+		let flag1 = false;
+		$('.surname').blur(function() {
+			let reg = /^[\u4e00-\u9fa5]{1,4}$/;
+			if (!reg.test($(this).val()) || $(this).val() == '') {
+				$('.xing').show();
+				flag1 = false;
+			} else {
+				$('.xing').hide();
+				flag1 = true;
+			}
+		});
+		let flag2 = false;
+		$('.name').blur(function() {
+			let reg = /^[\u4e00-\u9fa5]{1,4}$/;
+			if (!reg.test($(this).val()) || $(this).val() == '') {
+				$('.ming').show();
+				flag2 = false;
+			} else {
+				$('.ming').hide();
+				flag2 = true;
+			}
+		});
+		// ---------------------------------------手机号-------------
+		let flag3 = false;
+		$('.tel').blur(function() {
+			let reg = /^(13|15|18|17)\d{9}$/;
+			if (!reg.test($(this).val()) || $(this).val() == '') {
+				$('.shouji').show();
+				flag3 = false;
+			} else {
+				$('.shouji').hide();
+				$.ajax({
+					//请求方式
+					type: "POST",
+					//请求地址
+					url: "Login.php",
+					//数据，json字符串
+					data: {
+						tel: $('.tel').val()
+					},
+					//请求成功
+					success: function(str) {
+						if (str == '1') {
+							alert('数据库已存在');
+						} else { 
+							console.log('请放心使用');
+						}
+					}
+				});
+				flag3 = true;
+			}
+		});
+		// ---------------------------------------验证码-------------
+		let flag4 = false;
+		let redo = '1234567890qwertyuiopasdfghjklzxcvbnmZXCVBNMASDFGHJKLQWERTYUIOP';
+		let zero_num_index = '';
+
+		$('.sCode').click(function() {
+			zero_num_index = '';
+			for (let i = 0; i < 4; i++) {
+				zero_num_index += redo[parseInt(Math.random() * redo.length - 1)];
+			}
+			$('.sCode').html(zero_num_index);
+		});
+		$('.sc').blur(function() {
+			if ($(this).val() != $('.sCode').html()) {
+				$('.yanzheng').show();
+				flag4 = false;
+			} else if ($(this).val() == '') {
+				$('.yanzheng').show();
+				flag4 = false;
+			} else {
+				$('.yanzheng').hide();
+				flag4 = true;
+			}
+		});
+		// ---------------------------------------短信验证码-------------
+		let flag5 = false;
+		$('.newsc').blur(function() {
+			let reg = /^\d{4,9}$/;
+			if (!reg.test($(this).val()) || $(this).val() == '') {
+				$('.duanxin').show();
+				flag5 = false;
+			} else {
+				$('.duanxin').hide();
+				flag5 = true;
+			}
+		});
+		// ---------------------------------------密码-------------
+		let flag6 = false;
+		$('.pass').blur(function() {
+			let reg = /^\d{6,18}$/;
+			if (!reg.test($(this).val()) || $(this).val() == '') {
+				$('.mima').show();
+				flag6 = false;
+			} else {
+				$('.mima').hide();
+				flag6 = true; 
+			};
+		});
+		// ------------------------------------------提交的判断-----
+		$('.section_main').click(function() {
+			let surname_ = $('.surname').val();
+			let name_ = $('.name').val();
+			let tel_ = $('.tel').val();
+			let pass_ = $('.pass').val();
+			if (flag1 && flag2 && flag3 && flag4 && flag5 && flag6) {
+				console.log('正确');
+				$.ajax({
+					//请求方式
+					type: "POST",
+					//请求的媒体类型
+					// contentType: "application/json;charset=UTF-8",
+					//请求地址
+					url: "Resister.php",
+					//数据，json字符串
+					data: {
+						surname: surname_,
+						name: name_,
+						tel: tel_,
+						pass: pass_
+					},
+					//请求成功
+					success: function(str) {
+						console.log(str);
+						if (str == '1') {
+							alert('数据库已存在，请重输！');
+						} else {
+							alert('注册成功');
+						}
+					}
+				});
+				return true;
+			} else {
+				console.log('请输入正确信息');
+				return false;
+			}
+		});
+	});
+</script>
